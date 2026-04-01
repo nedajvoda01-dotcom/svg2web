@@ -1,0 +1,1 @@
+// [ModuleRoot] | Конфигурация pub fn load_config(path: Option<&Path>) -> Result<Config> pub struct Config { pub format: FormatConfig pub optimization: OptimizationConfig } merge CLI args + TOML file | ЭКСПОРТЫ: load_config Config FormatConfig | ЗАВИСИТ_ОТ: serde toml | КТО_ИСПОЛЬЗУЕТ: commands

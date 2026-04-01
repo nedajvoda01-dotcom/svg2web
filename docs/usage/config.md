@@ -1,0 +1,1 @@
+<!-- [Doc] | svg2web.toml — все опции. Структура: [parse], [generate], [generate.components], [optimizer], [extractor]. Дефолты для каждого поля. Переопределение через ENV переменные SVG2WEB_FRAMEWORK, SVG2WEB_IMAGE_QUALITY. Валидация: какие значения допустимы, что произойдет при ошибке. Примеры конфигов: минимальный, React + Tailwind, продакшен с оптимизациями -->

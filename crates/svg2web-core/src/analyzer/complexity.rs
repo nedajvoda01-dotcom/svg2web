@@ -1,0 +1,1 @@
+// [Module] | Метрики сложности pub fn compute_complexity(element: &SVGElement) -> ComplexityMetrics node_count: usize path_count: usize path_complexity: f64 gradient_count: usize estimated_render_time_ms: u64 итоговый score 0-100 | ЗАВИСИТ_ОТ: model::element model::style | КТО_ИСПОЛЬЗУЕТ: mod.rs

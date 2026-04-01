@@ -1,0 +1,1 @@
+# [Config] | Манифест плагина. name="svg2web-svelte", version="0.1.0", edition="2021". [lib] crate-type=["cdylib"] для динамической загрузки. Зависимости: svg2web-generator из workspace по относительному пути "../../crates/svg2web-generator"

@@ -1,0 +1,1 @@
+// [Test] | Тесты реестра #[test] fn test_register_custom_renderer() { let mut registry = FormatRegistry::new(); registry.register("custom", Box::new(CustomRenderer)); assert!(registry.get("custom").is_some()); } | ЗАВИСИТ_ОТ: svg2web-generator | КТО_ИСПОЛЬЗУЕТ: CI cargo test

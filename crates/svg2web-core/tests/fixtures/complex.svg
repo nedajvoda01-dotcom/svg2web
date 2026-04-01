@@ -1,0 +1,1 @@
+<!-- [Asset] | Тестовый SVG сложный группы трансформации вложенность <svg xmlns="http://www.w3.org/2000/svg"><g transform="translate(10 10)"><rect/><g transform="scale(2)"><circle/></g></g></svg> тестирует hierarchy complexity | ПРОВЕРКИ: используется в analyzer_test.rs optimizer_test.rs -->

@@ -1,0 +1,1 @@
+// [Test] | Интеграционные тесты генератора #[tokio::test] async fn test_full_pipeline() { let output = generate_from_file("test.json", "vanilla").await.unwrap(); assert!(output.files.iter().any(|f| f.name == "index.html")); } полный цикл JSON → код | ЗАВИСИТ_ОТ: svg2web-generator tempfile tokio-test | КТО_ИСПОЛЬЗУЕТ: CI cargo test

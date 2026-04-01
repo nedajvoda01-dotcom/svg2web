@@ -1,0 +1,1 @@
+// [Component] | Скачивание результата. Условный рендер при наличии result. downloadZip: создание Blob из zipData, URL.createObjectURL, клик по ссылке, revoke. copyCode: navigator.clipboard.writeText. Кнопки: Download ZIP (bg-blue-500), Copy Code (bg-gray-100)

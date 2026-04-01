@@ -1,0 +1,1 @@
+// [Module] | Извлечение изображений pub fn extract_base64_images(element: &SVGElement) -> Vec<ImageAsset> pub fn convert_to_webp(image: &ImageAsset quality: u8) -> Vec<u8> опциональная фича webp декодинг base64 определение формата | ЗАВИСИТ_ОТ: image webp feature model::asset | КТО_ИСПОЛЬЗУЕТ: mod.rs

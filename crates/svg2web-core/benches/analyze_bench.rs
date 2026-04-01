@@ -1,0 +1,1 @@
+// [Bench] | Бенчмарк анализа fn analyze_benchmark(c: &mut Criterion) { let svg = parse(include_str!("../tests/fixtures/complex.svg")).unwrap(); c.bench_function("analyze complex", |b| b.iter(|| analyze(black_box(&svg)))); } | ЗАВИСИТ_ОТ: svg2web-core criterion | КТО_ИСПОЛЬЗУЕТ: cargo bench

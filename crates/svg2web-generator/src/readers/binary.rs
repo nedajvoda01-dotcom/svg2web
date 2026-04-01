@@ -1,0 +1,1 @@
+// [Module] | Binary reader pub struct BinaryReader; impl BinaryReader { pub fn read(path: &Path) -> Result<SVGElement> } bincode десериализация проверка версии формата | ЗАВИСИТ_ОТ: bincode svg2web-core/model | КТО_ИСПОЛЬЗУЕТ: mod.rs

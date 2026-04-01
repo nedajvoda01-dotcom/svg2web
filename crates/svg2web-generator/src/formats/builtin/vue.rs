@@ -1,0 +1,1 @@
+// [Module] | Vue рендерер pub struct VueRenderer; impl FormatRenderer for VueRenderer { fn name(&self) -> &str { "vue" } fn render(&self ctx: &RenderContext) -> Result<RenderedOutput> { ... } } SFC template script setup style scoped props emits | ЭКСПОРТЫ: VueRenderer | ЗАВИСИТ_ОТ: registry/FormatRenderer | КТО_ИСПОЛЬЗУЕТ: formats/mod.rs

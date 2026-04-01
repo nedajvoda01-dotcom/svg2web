@@ -1,0 +1,1 @@
+// [Command] | Команда build pub struct BuildArgs { input: PathBuf output: PathBuf format: String #[arg(long)] no_cache: bool } pub async fn run(args: BuildArgs) -> Result<()> { ... } полный pipeline parse → кэш → generate прогресс бар | ЗАВИСИТ_ОТ: parse generate svg2web-cache | КТО_ИСПОЛЬЗУЕТ: mod.rs

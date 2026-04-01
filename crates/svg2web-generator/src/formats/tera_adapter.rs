@@ -1,0 +1,1 @@
+// [Module] | Tera адаптер pub struct TeraAdapter { template: Tera } impl FormatRenderer for TeraAdapter { ... } legacy шаблоны через Tera | ЗАВИСИТ_ОТ: tera feature registry/FormatRenderer | КТО_ИСПОЛЬЗУЕТ: formats/mod.rs

@@ -1,0 +1,1 @@
+// [Component] | Корневой компонент. Состояние: file (выбранный SVG), result, status из useConverter. Layout: header, main grid (Uploader, Settings, Preview, Download). Передача колбэков и данных в дочерние компоненты

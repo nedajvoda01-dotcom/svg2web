@@ -1,0 +1,1 @@
+// [Model] | SVG элемент pub struct SVGElement { pub tag: String pub attributes: HashMap<String String> pub children: Vec<SVGElement> pub id: Option<String> pub class: Vec<String> pub text_content: Option<String> } ElementType enum Attribute struct | ЭКСПОРТЫ: SVGElement ElementType Attribute | ЗАВИСИТ_ОТ: serde | КТО_ИСПОЛЬЗУЕТ: все модули core

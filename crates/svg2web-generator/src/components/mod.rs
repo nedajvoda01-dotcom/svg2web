@@ -1,0 +1,1 @@
+// [ModuleRoot] | Генерация компонентов pub fn generate_components(analysis: &AnalysisResult ctx: &RenderContext) -> Vec<ComponentFile> обертка для детектированных компонентов | ЭКСПОРТЫ: generate_components ComponentFile | ЗАВИСИТ_ОТ: registry svg2web-core/analyzer | КТО_ИСПОЛЬЗУЕТ: builders

@@ -1,0 +1,1 @@
+// [Module] | Обработка текста pub fn parse_font(style: &usvg::Style) -> Font pub fn extract_text_content(node: &usvg::Node) -> Option<String> поддержка font-family font-size font-weight letter-spacing text-anchor | ЗАВИСИТ_ОТ: model::style model::element | КТО_ИСПОЛЬЗУЕТ: mod.rs svg.rs

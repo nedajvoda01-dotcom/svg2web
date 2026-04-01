@@ -1,0 +1,1 @@
+# [Config] | Манифест примера. name="example-basic", version="0.1.0", edition="2021". Зависимости: svg2web-core, svg2web-generator из workspace. [[bin]] name="basic", path="src/main.rs"

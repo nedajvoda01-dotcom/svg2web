@@ -1,0 +1,1 @@
+// [Module] | Анализ иерархии pub fn analyze_hierarchy(element: &SVGElement) -> HierarchyInfo глубина дерева максимальная ширина критические пути рендеринга сложная вложенность detector | ЗАВИСИТ_ОТ: model::element | КТО_ИСПОЛЬЗУЕТ: mod.rs

@@ -1,0 +1,1 @@
+// [Hook] | Хук Web Worker с типизированными сообщениями. useRef для worker, useEffect для создания и terminate. sendMessage: Promise обёртка над postMessage, addEventListener с фильтрацией ERROR, автоматическое removeEventListener. Методы: analyze, optimize, parse — все возвращают Promise с типизированным payload

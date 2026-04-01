@@ -1,0 +1,1 @@
+// [Module] | Контекст рендеринга pub struct RenderContext { pub elements: Vec<SVGElement> pub analysis: AnalysisResult pub options: FormatOptions pub assets: Vec<Asset> } данные для рендерера | ЗАВИСИТ_ОТ: svg2web-core/model svg2web-core/analysis | КТО_ИСПОЛЬЗУЕТ: registry formats builders

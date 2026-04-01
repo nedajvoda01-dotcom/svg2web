@@ -1,0 +1,1 @@
+// [Module] | Внешние ресурсы pub async fn fetch_external_resource(url: &str) -> Result<Vec<u8>> pub fn resolve_xlink_href(element: &SVGElement base: &Url) -> Vec<ExternalAsset> async fetch с таймаутом retry logic кэширование загрузок | ЗАВИСИТ_ОТ: reqwest feature tokio model::element model::asset | КТО_ИСПОЛЬЗУЕТ: mod.rs

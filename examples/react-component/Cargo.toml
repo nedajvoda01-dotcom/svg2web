@@ -1,0 +1,1 @@
+# [Config] | Манифест примера. name="example-react-component". Зависимости: svg2web-core, svg2web-generator из workspace. Без [[bin]], используется как библиотечный пример

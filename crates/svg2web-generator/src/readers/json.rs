@@ -1,0 +1,1 @@
+// [Module] | JSON reader pub struct JsonReader; impl JsonReader { pub fn read(path: &Path) -> Result<SVGElement> pub fn read_str(json: &str) -> Result<SVGElement> } serde_json десериализация | ЗАВИСИТ_ОТ: serde_json svg2web-core/model | КТО_ИСПОЛЬЗУЕТ: mod.rs

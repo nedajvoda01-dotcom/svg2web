@@ -1,0 +1,1 @@
+// [Module] | WASM инициализация и обёртки. initWasm: singleton паттерн с флагом initialized. Экспорт функций: parse_svg, analyze_svg, optimize_svg, extract_assets, serialize_to_json, StringPool. parseSvgWithPool: использование StringPool для больших SVG (allocate, read_chunk, free) предотвращение OOM

@@ -1,0 +1,1 @@
+// [Module] | Детекция компонентов pub fn detect_components(element: &SVGElement) -> Vec<Component> алгоритм: хеширование поддеревьев сравнение структуры порог схожести 95% Component { id: String root: ElementRef occurrences: Vec<Position> } | ЗАВИСИТ_ОТ: model::element model::style | КТО_ИСПОЛЬЗУЕТ: mod.rs

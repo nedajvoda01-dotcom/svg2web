@@ -1,0 +1,1 @@
+# [Workflow] | WASM-specific CI запускается на push в main изменения в crates/svg2web-wasm/ web/ Jobs: build wasm-pack build --target web verify pkg/ создан test wasm-pack test --headless firefox --headless chrome test web npm ci npm run build npm run test:ci | ПРОВЕРКИ: pkg/ не пустой тесты проходят сборка web проходит

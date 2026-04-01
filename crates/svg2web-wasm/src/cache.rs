@@ -1,0 +1,1 @@
+// [Module] | WASM кэш #[wasm_bindgen] pub struct WasmCache { cache: MemoryCache } #[wasm_bindgen] impl WasmCache { pub fn new(max_size: usize) -> Self pub fn get(&mut self, key: &str) -> Option<JsValue> pub fn set(&mut self, key: String, value: JsValue) } in-memory LRU | ЗАВИСИТ_ОТ: svg2web-cache/memory wasm-bindgen | КТО_ИСПОЛЬЗУЕТ: lib.rs

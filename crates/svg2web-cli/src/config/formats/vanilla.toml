@@ -1,0 +1,1 @@
+# [Config] | Настройки Vanilla css_class_naming = "bem" js_module = "esm" css_reset = true js_polyfills = [] | ЗАВИСИТ_ОТ: mod.rs | КТО_ИСПОЛЬЗУЕТ: commands при генерации Vanilla

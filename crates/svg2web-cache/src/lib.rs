@@ -1,0 +1,1 @@
+// [Lib] | Публичный API кэша pub use cache::{Cache CacheConfig}; pub use key::CacheKey; pub use entry::CacheEntry; pub struct Cache { disk: Option<DiskCache> memory: MemoryCache } методы get set invalidate clear | ЭКСПОРТЫ: Cache CacheKey CacheEntry CacheConfig | ЗАВИСИТ_ОТ: key disk memory manager | КТО_ИСПОЛЬЗУЕТ: generator cli wasm

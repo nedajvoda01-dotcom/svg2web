@@ -1,0 +1,1 @@
+# [Config] | Настройки Vue script_setup = true scoped_styles = true props_type = "typescript" emits_declaration = true composables = [] | ЗАВИСИТ_ОТ: mod.rs | КТО_ИСПОЛЬЗУЕТ: commands при генерации Vue

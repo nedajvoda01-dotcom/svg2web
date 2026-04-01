@@ -1,0 +1,1 @@
+// [Module] | JS генератор pub struct JsBuilder; impl JsBuilder { pub fn build(ctx: &RenderContext) -> Result<String> } event listeners анимации requestAnimationFrame | ЗАВИСИТ_ОТ: registry/context | КТО_ИСПОЛЬЗУЕТ: mod.rs

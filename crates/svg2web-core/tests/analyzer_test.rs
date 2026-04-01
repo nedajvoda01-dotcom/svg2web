@@ -1,0 +1,1 @@
+// [Test] | Тесты анализа #[test] fn test_detect_components() { let svg = parse(include_str!("fixtures/complex.svg")).unwrap(); let analysis = analyze(&svg); assert!(!analysis.components.is_empty()); } тесты метрик сложности иерархии | ЗАВИСИТ_ОТ: svg2web-core | КТО_ИСПОЛЬЗУЕТ: CI cargo test

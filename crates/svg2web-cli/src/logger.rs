@@ -1,0 +1,1 @@
+// [Module] | Логирование pub fn init_logger() { env_logger::Builder::from_env(env_logger::Env::default().default_filter_or("info")).init(); } уровни error warn info debug trace | ЗАВИСИТ_ОТ: env_logger | КТО_ИСПОЛЬЗУЕТ: main.rs

@@ -1,0 +1,1 @@
+// [Component] | Индикатор прогресса. Стадии: parsing, analyzing, optimizing, generating. Текущая стадия подсвечена (text-blue-600), остальные серые (text-gray-400). Прогресс-бар с transition-all, ширина по progress процентам

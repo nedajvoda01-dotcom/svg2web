@@ -1,0 +1,1 @@
+// [Module] | Обертка анализатора #[wasm_bindgen] pub fn analyze_svg_wasm(svg: &str) -> Result<JsValue, JsValue> { let element = parse(svg)?; let analysis = analyzer::analyze(&element); Ok(serde_wasm_bindgen::to_value(&analysis)?) } конверсия в JS types | ЗАВИСИТ_ОТ: svg2web-core/analyzer wasm-bindgen serde_wasm_bindgen | КТО_ИСПОЛЬЗУЕТ: lib.rs

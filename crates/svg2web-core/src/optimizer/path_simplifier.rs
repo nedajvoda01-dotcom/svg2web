@@ -1,0 +1,1 @@
+// [Module] | Упрощение путей pub fn simplify_path(path: &PathData tolerance: f64) -> PathData алгоритм Douglas-Peucker конвертация кривых в линии при малой длине удаление избыточных точек | ЗАВИСИТ_ОТ: model::element | КТО_ИСПОЛЬЗУЕТ: mod.rs

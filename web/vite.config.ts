@@ -1,0 +1,1 @@
+// [Config] | Vite конфигурация. Плагины: react(), wasm(). Resolve aliases: '@' → '/src', '@wasm' → '/src/lib'. Build: outDir='dist', target='es2020', sourcemap=true. Server: port=3000. Поддержка WASM через vite-plugin-wasm

@@ -1,0 +1,1 @@
+// [Command] | Команда parse pub struct ParseArgs { #[arg(short long)] input: PathBuf #[arg(short long)] output: PathBuf #[arg(long)] format: Option<String> } pub async fn run(args: ParseArgs) -> Result<()> { ... } SVG → JSON/binary кэширование опционально | ЗАВИСИТ_ОТ: svg2web-core svg2web-cache | КТО_ИСПОЛЬЗУЕТ: mod.rs

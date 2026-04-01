@@ -1,0 +1,1 @@
+<!-- [Doc] | Установка всех способов. Cargo (рекомендуется): cargo install svg2web-cli, системные требования (Rust 1.70+). NPM (WASM только): npm install svg2web-wasm, ограничения (только parse/analyze/optimize, нет generate). Docker: docker pull ghcr.io/org/svg2web, запуск с volume. Проверка установки: svg2web --version -->

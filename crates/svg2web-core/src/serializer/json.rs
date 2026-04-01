@@ -1,0 +1,1 @@
+// [Module] | JSON сериализация pub struct JsonSerializer; impl JsonSerializer { pub fn serialize(element: &SVGElement) -> Result<String> pub fn deserialize(json: &str) -> Result<SVGElement> } кастомные сериализаторы для сложных типов pretty print опция | ЗАВИСИТ_ОТ: serde_json model::element | КТО_ИСПОЛЬЗУЕТ: mod.rs

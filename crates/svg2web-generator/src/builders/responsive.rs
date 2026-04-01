@@ -1,0 +1,1 @@
+// [Module] | Responsive генератор pub struct ResponsiveBuilder; impl ResponsiveBuilder { pub fn build(ctx: &RenderContext) -> Result<String> } media queries breakpoints fluid sizing container queries | ЗАВИСИТ_ОТ: svg2web-core/model/geometry | КТО_ИСПОЛЬЗУЕТ: mod.rs

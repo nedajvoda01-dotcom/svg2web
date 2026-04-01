@@ -1,0 +1,1 @@
+// [Module] | Извлечение геометрии pub fn extract_viewbox(tree: &usvg::Tree) -> Option<Rect> pub fn extract_size(tree: &usvg::Tree) -> Size pub fn compute_bounds(element: &SVGElement) -> Bounds трансформации координат | ЗАВИСИТ_ОТ: model::geometry | КТО_ИСПОЛЬЗУЕТ: mod.rs svg.rs

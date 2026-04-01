@@ -1,0 +1,1 @@
+// [Module] | Vanilla рендерер pub struct VanillaRenderer; impl FormatRenderer for VanillaRenderer { fn name(&self) -> &str { "vanilla" } fn render(&self ctx: &RenderContext) -> Result<RenderedOutput> { ... } } чистый HTML/CSS/JS без фреймворка | ЭКСПОРТЫ: VanillaRenderer | ЗАВИСИТ_ОТ: registry/FormatRenderer | КТО_ИСПОЛЬЗУЕТ: formats/mod.rs

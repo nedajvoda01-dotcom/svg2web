@@ -1,0 +1,1 @@
+// [Command] | Команда optimize pub struct OptimizeArgs { input: PathBuf output: PathBuf #[arg(long)] config: Option<PathBuf> } pub async fn run(args: OptimizeArgs) -> Result<()> { ... } только оптимизация без генерации кэширование | ЗАВИСИТ_ОТ: svg2web-core svg2web-cache | КТО_ИСПОЛЬЗУЕТ: mod.rs

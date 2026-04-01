@@ -1,0 +1,1 @@
+// [ModuleRoot] | Чтение промежуточного формата pub fn read_json(path: &Path) -> Result<SVGElement> pub fn read_binary(path: &Path) -> Result<SVGElement> pub fn read_assets(path: &Path) -> Result<Vec<Asset>> unified interface | ЭКСПОРТЫ: read_json read_binary read_assets | ЗАВИСИТ_ОТ: svg2web-core/model svg2web-core/serializer | КТО_ИСПОЛЬЗУЕТ: lib.rs builders

@@ -1,0 +1,1 @@
+// [Plugin] | Реализация Solid рендерера. Структура SolidRenderer, impl FormatRenderer с name() возвращающим "solid". Генерация .jsx файлов с Solid signals (createSignal, createMemo), fine-grained reactivity, отсутствие виртуального DOM

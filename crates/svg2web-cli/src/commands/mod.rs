@@ -1,0 +1,1 @@
+// [ModuleRoot] | Диспетчер команд pub enum Command { Parse(ParseArgs) Generate(GenerateArgs) Build(BuildArgs) Optimize(OptimizeArgs) Analyze(AnalyzeArgs) } pub async fn run(cmd: Command) -> Result<()> { match cmd { ... } } | ЭКСПОРТЫ: Command run_command | ЗАВИСИТ_ОТ: svg2web-core svg2web-generator svg2web-cache config | КТО_ИСПОЛЬЗУЕТ: main.rs

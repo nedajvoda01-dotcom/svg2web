@@ -1,0 +1,1 @@
+# [Config] | Конфиг адаптивности. responsive = true, breakpoints = [768, 1024]. Включение генерации media queries для указанных точек останова

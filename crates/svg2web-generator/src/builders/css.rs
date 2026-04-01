@@ -1,0 +1,1 @@
+// [Module] | CSS генератор pub struct CssBuilder; impl CssBuilder { pub fn build(ctx: &RenderContext) -> Result<String> } селекторы по class/id стили из SVG media queries | ЗАВИСИТ_ОТ: registry/context | КТО_ИСПОЛЬЗУЕТ: mod.rs

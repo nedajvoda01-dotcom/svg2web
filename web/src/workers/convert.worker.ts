@@ -1,0 +1,1 @@
+// [WebWorker] | Web Worker для WASM. Импорт init, parse_svg, analyze_svg, optimize_svg из @wasm/svg2web. Состояние: wasmReady (boolean), инициализация при первом вызове. Обработка сообщений: PARSE, ANALYZE, OPTIMIZE с соответствующими вызовами WASM. postMessage с результатом или ERROR. Типы WorkerMessage с дискриминантом type

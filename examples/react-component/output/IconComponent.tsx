@@ -1,0 +1,1 @@
+// [Asset] | Ожидаемый выход. React функциональный компонент с TypeScript интерфейсом IconProps (size?: number, color?: string). Дефолты: size=24, color='currentColor'. JSX с динамическими width, height, stroke. Сохраняет viewBox и path d

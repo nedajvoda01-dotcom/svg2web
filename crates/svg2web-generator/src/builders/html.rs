@@ -1,0 +1,1 @@
+// [Module] | HTML генератор pub struct HtmlBuilder; impl HtmlBuilder { pub fn build(ctx: &RenderContext) -> Result<String> } DOCTYPE head body svg embedding meta viewport | ЗАВИСИТ_ОТ: registry/context | КТО_ИСПОЛЬЗУЕТ: mod.rs

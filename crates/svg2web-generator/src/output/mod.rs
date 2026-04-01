@@ -1,0 +1,1 @@
+// [ModuleRoot] | Вывод результатов pub fn write_files(output: BuildOutput dir: &Path) -> Result<()> pub fn write_zip(output: BuildOutput path: &Path) -> Result<()> pub async fn write_streaming(output: BuildOutput writer: impl AsyncWrite) -> Result<()> | ЭКСПОРТЫ: write_files write_zip write_streaming OutputOptions | ЗАВИСИТ_ОТ: std::fs zip tokio | КТО_ИСПОЛЬЗУЕТ: lib.rs

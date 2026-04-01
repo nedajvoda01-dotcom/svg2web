@@ -1,0 +1,1 @@
+<!-- [Asset] | Ожидаемый выход. Vue Single File Component: <template> с динамическими :width, :height, :stroke. <script setup lang="ts"> с interface Props, withDefaults для дефолтных значений. <style scoped> для изоляции стилей -->

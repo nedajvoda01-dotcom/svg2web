@@ -1,0 +1,1 @@
+// [Command] | Команда build-all. xshell Shell для выполнения команд. Последовательность: cargo build --workspace, wasm-pack build crates/svg2web-wasm --target web, npm ci --prefix web, npm run build --prefix web. Проверка ошибок после каждого шага

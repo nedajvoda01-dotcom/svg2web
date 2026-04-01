@@ -1,0 +1,1 @@
+// [Module] | Удаление дубликатов pub fn deduplicate_elements(root: &mut SVGElement) объединение одинаковых элементов merge стилей использует analyzer::components для поиска | ЗАВИСИТ_ОТ: model::element model::style analyzer::components | КТО_ИСПОЛЬЗУЕТ: mod.rs

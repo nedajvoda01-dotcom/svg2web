@@ -1,0 +1,1 @@
+// [Module] | Файловый writer pub struct FileWriter; impl FileWriter { pub async fn write_files(files: &[OutputFile] base_dir: &Path) -> Result<()> } создание директорий обработка путей permissions async через tokio::fs | ЗАВИСИТ_ОТ: tokio::fs | КТО_ИСПОЛЬЗУЕТ: mod.rs

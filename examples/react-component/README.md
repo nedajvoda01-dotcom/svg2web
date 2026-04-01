@@ -1,0 +1,1 @@
+<!-- [Doc] | Документация. Описание: конвертация SVG в React компонент с TypeScript. Использование: import { IconComponent } from './IconComponent'; <IconComponent size={32} color="blue" />. Примеры пропсов и переопределения стилей -->

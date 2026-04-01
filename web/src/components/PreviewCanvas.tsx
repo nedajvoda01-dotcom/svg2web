@@ -1,0 +1,1 @@
+// [Component] | Canvas предпросмотра. iframe с srcdoc содержащим SVG. useRef для доступа к iframe, useEffect для обновления srcdoc при изменении src. Aspect-video соотношение сторон, flex центрирование

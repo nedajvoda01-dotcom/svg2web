@@ -1,0 +1,1 @@
+// [Test] | Тесты форматов #[test] fn test_react_output() { let ctx = create_test_context(); let renderer = ReactRenderer; let output = renderer.render(&ctx).unwrap(); assert!(output.content.contains("export function")); } snapshot тесты с insta | ЗАВИСИТ_ОТ: svg2web-generator insta | КТО_ИСПОЛЬЗУЕТ: CI cargo test

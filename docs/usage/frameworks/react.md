@@ -1,0 +1,1 @@
+<!-- [Doc] | React генерация. TSX с типами, functional components, props interface (size, color, className, style), использование useState/useEffect для интерактива, интеграция в существующий React проект. Когда использовать: интерактивные иконки, дашборды, сложные UI с состоянием -->

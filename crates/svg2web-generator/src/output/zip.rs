@@ -1,0 +1,1 @@
+// [Module] | ZIP writer pub struct ZipWriter; impl ZipWriter { pub fn write_zip(files: &[OutputFile] writer: impl Write) -> Result<()> } streaming ZIP структура директорий внутри | ЗАВИСИТ_ОТ: zip | КТО_ИСПОЛЬЗУЕТ: mod.rs

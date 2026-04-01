@@ -1,0 +1,1 @@
+# [Config] | Манифест плагина. name="svg2web-solid", version="0.1.0", edition="2021". [lib] crate-type=["cdylib"]. Зависимости: svg2web-generator из workspace

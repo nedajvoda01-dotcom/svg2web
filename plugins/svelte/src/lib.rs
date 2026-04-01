@@ -1,0 +1,1 @@
+// [Plugin] | Реализация Svelte рендерера. Импорт FormatRenderer, RenderContext, RenderedOutput из svg2web_generator::registry. Структура SvelteRenderer, impl FormatRenderer с методами name() возвращающим "svelte" и render() генерирующим .svelte файлы. Генерация SFC с script, style, template секциями

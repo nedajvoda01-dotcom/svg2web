@@ -1,0 +1,1 @@
+// [Binary] | Точка входа xtask. clap Parser для CLI, Subcommand enum: BuildAll, TestAll, BenchAll, Publish, Clean. match по команде, делегирование в соответствующие модули. anyhow для обработки ошибок

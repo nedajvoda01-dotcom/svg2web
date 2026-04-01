@@ -1,0 +1,1 @@
+// [Command] | Команда generate pub struct GenerateArgs { input: PathBuf output: PathBuf format: String } pub async fn run(args: GenerateArgs) -> Result<()> { ... } JSON/binary → код чтение из кэша | ЗАВИСИТ_ОТ: svg2web-generator svg2web-cache | КТО_ИСПОЛЬЗУЕТ: mod.rs

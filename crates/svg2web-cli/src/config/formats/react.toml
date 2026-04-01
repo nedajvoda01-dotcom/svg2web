@@ -1,0 +1,1 @@
+# [Config] | Настройки React component_style = "functional" export_type = "named" props_interface = true typescript = true hooks = ["useState", "useEffect"] | ЗАВИСИТ_ОТ: mod.rs | КТО_ИСПОЛЬЗУЕТ: commands при генерации React

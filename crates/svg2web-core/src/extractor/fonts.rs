@@ -1,0 +1,1 @@
+// [Module] | Детекция шрифтов pub fn detect_font_families(element: &SVGElement) -> Vec<FontFamily> pub fn extract_font_info(style: &Style) -> FontAsset парсинг CSS font-family font-weight font-style список используемых глифов | ЗАВИСИТ_ОТ: model::style | КТО_ИСПОЛЬЗУЕТ: mod.rs

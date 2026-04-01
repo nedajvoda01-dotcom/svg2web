@@ -1,0 +1,1 @@
+// [Module] | Обертка над usvg pub struct UsvgParser; impl UsvgParser { pub fn load(svg: &str) -> Result<usvg::Tree> pub fn to_model(tree: usvg::Tree) -> SVGElement } конвертация usvg::Tree в SVGElement обработка ошибок usvg | ЗАВИСИТ_ОТ: usvg model::element | КТО_ИСПОЛЬЗУЕТ: mod.rs

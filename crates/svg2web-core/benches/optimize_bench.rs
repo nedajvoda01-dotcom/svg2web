@@ -1,0 +1,1 @@
+// [Bench] | Бенчмарк оптимизации fn optimize_benchmark(c: &mut Criterion) { let svg = parse(...).unwrap(); c.bench_function("optimize complex", |b| b.iter(|| optimize(black_box(svg.clone())))); } | ЗАВИСИТ_ОТ: svg2web-core criterion | КТО_ИСПОЛЬЗУЕТ: cargo bench

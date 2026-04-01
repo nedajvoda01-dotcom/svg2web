@@ -1,0 +1,1 @@
+// [Test] | Интеграционные тесты CLI #[test] fn test_parse_command() { let mut cmd = Command::cargo_bin("svg2web").unwrap(); cmd.arg("parse").arg("--input").arg("test.svg"); cmd.assert().success(); } assert_cmd predicates | ЗАВИСИТ_ОТ: svg2web-cli assert_cmd predicates tempfile | КТО_ИСПОЛЬЗУЕТ: CI cargo test

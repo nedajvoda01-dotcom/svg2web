@@ -1,0 +1,1 @@
+// [Module] | Парсинг стилей pub fn parse_fill(style: &usvg::Style) -> Option<Color> pub fn parse_stroke(style: &usvg::Style) -> Option<Stroke> pub fn parse_gradient(node: &usvg::Node) -> Option<Gradient> поддержка linear radial gradients shadows | ЗАВИСИТ_ОТ: model::style | КТО_ИСПОЛЬЗУЕТ: mod.rs svg.rs

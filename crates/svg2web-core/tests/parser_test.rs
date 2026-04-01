@@ -1,0 +1,1 @@
+// [Test] | Интеграционные тесты парсинга #[test] fn test_parse_simple() { let svg = include_str!("fixtures/simple.svg"); let result = parse(svg).unwrap(); assert_eq!(result.children.len(), 2); } тесты всех fixtures ошибочных SVG граничные случаи | ЗАВИСИТ_ОТ: svg2web-core tempfile | КТО_ИСПОЛЬЗУЕТ: CI cargo test

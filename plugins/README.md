@@ -1,0 +1,1 @@
+<!-- [Doc] | Руководство по созданию плагинов. Быстрый старт: 1) Создать крейт с crate-type = ["cdylib"], 2) Имплементировать FormatRenderer, 3) Собрать cargo build, 4) Загрузить динамически или статически. API: FormatRenderer::name() — имя формата, FormatRenderer::render(ctx: &RenderContext) -> Result<RenderedOutput> — генерация кода. Примеры: смотри svelte/ и solid/ -->

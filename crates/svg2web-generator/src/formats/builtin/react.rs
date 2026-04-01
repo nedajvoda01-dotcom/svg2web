@@ -1,0 +1,1 @@
+// [Module] | React рендерер pub struct ReactRenderer; impl FormatRenderer for ReactRenderer { fn name(&self) -> &str { "react" } fn render(&self ctx: &RenderContext) -> Result<RenderedOutput> { ... } } TSX functional component props interface hooks useState useEffect | ЭКСПОРТЫ: ReactRenderer | ЗАВИСИТ_ОТ: registry/FormatRenderer | КТО_ИСПОЛЬЗУЕТ: formats/mod.rs

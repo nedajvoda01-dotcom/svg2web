@@ -1,0 +1,1 @@
+<!-- [Doc] | 5-минутный старт. Установка через cargo install svg2web-cli, команда svg2web build input.svg --output ./output --format react, что получилось в output/, проверка результата в браузере. Без объяснения почему так работает -->

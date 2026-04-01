@@ -1,0 +1,1 @@
+// [Test] | Тесты кэширования #[tokio::test] async fn test_cache_hit() { let cache = Cache::new_temp().await; let key = CacheKey::from_svg("test", &Config::default()); cache.set(key.clone(), entry).await; assert!(cache.get(&key).await.is_some()); } тесты miss инвалидации версий персистентности disk | ЗАВИСИТ_ОТ: svg2web-cache tempfile tokio-test | КТО_ИСПОЛЬЗУЕТ: CI cargo test

@@ -1,0 +1,1 @@
+// [Module] | Дисковый кэш pub struct DiskCache { db: sled::Db path: PathBuf } impl DiskCache { pub fn new(path: &Path) -> Result<Self> pub fn get(&self key: &CacheKey) -> Option<CacheEntry> pub fn set(&self key: CacheKey entry: CacheEntry) -> Result<()> } persistent хранение | ЗАВИСИТ_ОТ: sled tokio::fs | КТО_ИСПОЛЬЗУЕТ: lib.rs manager

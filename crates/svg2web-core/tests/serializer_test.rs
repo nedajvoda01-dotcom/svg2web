@@ -1,0 +1,1 @@
+// [Test] | Тесты сериализации #[test] fn test_json_roundtrip() { let svg = parse(...).unwrap(); let json = serialize_to_json(&svg).unwrap(); let restored = JsonSerializer::deserialize(&json).unwrap(); assert_eq!(svg, restored); } binary roundtrip также | ЗАВИСИТ_ОТ: svg2web-core tempfile | КТО_ИСПОЛЬЗУЕТ: CI cargo test

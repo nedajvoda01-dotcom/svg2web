@@ -1,0 +1,1 @@
+// [Module] | Ошибки генератора #[derive(Error Debug)] pub enum Error { #[error("read error: {0}")] ReadError(#[from] std::io::Error) #[error("build error: {0}")] BuildError(String) #[error("render error: {0}")] RenderError(String) #[error("write error: {0}")] WriteError(#[from] std::io::Error) } | ЭКСПОРТЫ: Error Result | ЗАВИСИТ_ОТ: thiserror | КТО_ИСПОЛЬЗУЕТ: все модули lib.rs

@@ -1,0 +1,1 @@
+// [Module] | Утилиты WASM pub fn set_panic_hook() { console_error_panic_hook::set_once(); } pub fn js_error_conversion(err: impl std::error::Error) -> JsValue { JsValue::from_str(&err.to_string()) } | ЗАВИСИТ_ОТ: wasm-bindgen console_error_panic_hook | КТО_ИСПОЛЬЗУЕТ: lib.rs

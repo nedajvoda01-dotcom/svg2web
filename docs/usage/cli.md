@@ -1,0 +1,1 @@
+<!-- [Doc] | Все команды и флаги. Команды: parse — SVG в JSON + ассеты, флаги --extract-images --webp --quality. generate — JSON в код, флаги --framework --styling --responsive. build — полный цикл parse + generate. optimize — только оптимизация без генерации. Общие флаги: --config, --output, --verbose, --quiet. Примеры для каждой команды с реальными SVG -->

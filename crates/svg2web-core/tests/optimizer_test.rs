@@ -1,0 +1,1 @@
+// [Test] | Тесты оптимизации #[test] fn test_deduplication() { let svg = parse(...).unwrap(); let original_size = svg.node_count(); let optimized = optimize(svg); assert!(optimized.node_count() < original_size); } проверка сохранения визуала через resvg рендер | ЗАВИСИТ_ОТ: svg2web-core resvg | КТО_ИСПОЛЬЗУЕТ: CI cargo test

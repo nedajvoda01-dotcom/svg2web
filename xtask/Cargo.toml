@@ -1,0 +1,1 @@
+# [Config] | Манифест xtask. name="xtask", version="0.1.0", edition="2021", publish=false. Зависимости: clap (derive), xshell. [package.metadata.xtask] — описания команд для документации

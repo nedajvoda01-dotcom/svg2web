@@ -1,0 +1,1 @@
+<!-- [Asset] | SVG с анимациями. <svg xmlns="http://www.w3.org/2000/svg"><style>@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }</style><rect style="animation: pulse 2s infinite"/></svg>. CSS анимации внутри SVG -->

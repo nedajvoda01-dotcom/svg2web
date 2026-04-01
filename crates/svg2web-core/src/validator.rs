@@ -1,0 +1,1 @@
+// [Module] | Валидация SVG pub fn validate_svg(svg: &str) -> Result<(), ValidationError> pub struct ValidationError { pub line: usize pub message: String } проверка well-formed XML наличие обязательных атрибутов xmlns предупреждения о потенциальных проблемах | ЗАВИСИТ_ОТ: error | КТО_ИСПОЛЬЗУЕТ: parser mod.rs

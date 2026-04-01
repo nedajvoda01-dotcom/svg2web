@@ -1,0 +1,1 @@
+// [Command] | Команда analyze pub struct AnalyzeArgs { input: PathBuf #[arg(short long)] output: Option<PathBuf> #[arg(long)] json: bool } pub async fn run(args: AnalyzeArgs) -> Result<()> { ... } структурный анализ вывод в stdout или JSON | ЗАВИСИТ_ОТ: svg2web-core | КТО_ИСПОЛЬЗУЕТ: mod.rs

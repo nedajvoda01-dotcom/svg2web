@@ -1,0 +1,1 @@
+<!-- [Doc] | Документация примера. Описание: простейший пример конвертации SVG в Vanilla HTML/CSS. Запуск: cargo run --example basic. Ожидаемый результат: создание папки output/ с index.html, styles.css, script.js. Проверка: открыть index.html в браузере, увидеть красный квадрат -->

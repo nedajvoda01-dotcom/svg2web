@@ -1,0 +1,1 @@
+// [Component] | Загрузчик файлов. react-dropzone для drag & drop. accept: image/svg+xml. onDrop фильтрует по типу, вызывает onFileSelect. Стили: border-dashed, изменение при isDragActive (border-blue-500, bg-blue-50)

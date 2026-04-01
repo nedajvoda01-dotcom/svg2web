@@ -1,0 +1,1 @@
+// [Config] | NPM манифест. name="svg2web-web", version="0.1.0", type="module". Dependencies: react, react-dom, vite, @types/react, @types/react-dom, svg2web-wasm (локальный файл "file:../crates/svg2web-wasm/pkg"). DevDependencies: typescript, tailwindcss, @vitejs/plugin-react. Scripts: dev="vite", build="tsc && vite build", preview="vite preview"

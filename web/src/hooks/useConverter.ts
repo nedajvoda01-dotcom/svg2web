@@ -1,0 +1,1 @@
+// [Hook] | Хук полного цикла конвертации. Состояние: result, status (idle | parsing | analyzing | optimizing | generating | done), progress (0-100). useWorker для коммуникации с воркером. convert: последовательность этапов с обновлением progress (0→25→50→75→100), вызов worker.analyze, worker.optimize, worker.generate. Возврат: result, status, progress, convert

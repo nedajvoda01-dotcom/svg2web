@@ -1,0 +1,1 @@
+// [Module] | Шаблоны компонентов pub fn render_react_component(component: &Component) -> String pub fn render_vue_component(component: &Component) -> String pub fn render_web_component(component: &Component) -> String | ЗАВИСИТ_ОТ: registry/FormatRenderer | КТО_ИСПОЛЬЗУЕТ: mod.rs

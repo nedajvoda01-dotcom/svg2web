@@ -1,0 +1,1 @@
+// [Module] | In-memory кэш pub struct MemoryCache { cache: LruCache<CacheKey CacheEntry> max_size: usize } impl MemoryCache { pub fn new(max_size: usize) -> Self pub fn get(&mut self key: &CacheKey) -> Option<&CacheEntry> pub fn set(&mut self key: CacheKey entry: CacheEntry) } LRU eviction | ЗАВИСИТ_ОТ: lru | КТО_ИСПОЛЬЗУЕТ: lib.rs manager wasm

@@ -1,0 +1,1 @@
+// [Module] | Минификация pub fn minify_ids(root: &mut SVGElement) генерация коротких id a b c ... удаление дефолтных атрибутов strip комментариев | ЗАВИСИТ_ОТ: model::element | КТО_ИСПОЛЬЗУЕТ: mod.rs

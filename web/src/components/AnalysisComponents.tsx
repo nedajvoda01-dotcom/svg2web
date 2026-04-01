@@ -1,0 +1,1 @@
+// [Component] | Список компонентов. Заголовок с количеством. Список: id компонента, количество использований (occurrences.length). Стили: bg-gray-50, rounded, flex justify-between. Условный рендер если components пустой
