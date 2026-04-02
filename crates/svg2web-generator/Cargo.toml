@@ -1,1 +1,18 @@
-# [Config] | Манифест name="svg2web-generator" version.workspace=true edition.workspace=true [dependencies] svg2web-core.workspace=true svg2web-cache.workspace=true tera={version="1.0" optional=true} zip.workspace=true tokio.workspace=true [features] default=[] legacy-templates=["dep:tera"] | ЗАВИСИТ_ОТ: svg2web-core svg2web-cache workspace root | ПРОВЕРКИ: cargo check -p svg2web-generator
+[package]
+name = "svg2web-generator"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+svg2web-core = { path = "../svg2web-core" }
+svg2web-cache = { path = "../svg2web-cache" }
+tera = { workspace = true, optional = true }
+zip.workspace = true
+tokio.workspace = true
+
+[features]
+default = []
+legacy-templates = ["dep:tera"]

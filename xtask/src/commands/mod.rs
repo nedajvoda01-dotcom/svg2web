@@ -1,1 +1,7 @@
-// [ModuleRoot] | Модули команд. pub mod build, test, bench, publish, clean. Реэкспорт для использования в main.rs
+pub mod bench;
+pub mod build;
+pub mod clean;
+pub mod lint;
+pub mod publish;
+pub mod test;
+pub mod verify;

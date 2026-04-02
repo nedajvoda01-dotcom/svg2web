@@ -1,4 +1,3 @@
-```markdown
 # Типы JS/TS
 
 ## ParseOutput
@@ -588,5 +587,4 @@ interface ExtractOptions {
   /** Таймаут для внешних запросов (мс) */
   timeout_ms?: number;
 }
-```
 ```

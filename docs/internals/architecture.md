@@ -1,1 +1,33 @@
-<!-- [Doc] | Архитектура. Обзор крейтов: svg2web-core (бизнес-логика, no side effects), svg2web-cache (инкрементальность), svg2web-generator (кодогенерация), svg2web-cli (интерфейс), svg2web-wasm (браузер). Потоки данных: [SVG] → [Parser] → [Analyzer] → [Optimizer] → [Extractor] → [Serializer] → [Cache] → [Generator] → [Output]. Границы: core не знает о файловой системе (только &[u8]), generator не знает о cli/wasm, cli и wasm зависят от core и generator. Зависимости: usvg, resvg, serde, tera, wasm-bindgen. Схема с ASCII диаграммой -->
+<!-- [Doc] | Обзор внутренней архитектуры: границы крейтов, поток данных, ключевые зависимости и зоны ответственности. -->
+
+# Архитектура
+
+Этот раздел объясняет границы компонентов svg2web, чтобы быстро понять, где находится ответственность каждого слоя.
+
+## Крейты
+
+- svg2web-core: бизнес-логика, чистые функции, без IO.
+- svg2web-cache: кэширование, зависит от core.
+- svg2web-generator: кодогенерация, зависит от core.
+- svg2web-cli: интерфейс командной строки, зависит от core, generator, cache.
+- svg2web-wasm: браузерная обертка, зависит от core и generator.
+
+## Поток данных
+
+```text
+[SVG Bytes] -> [Parser] -> [Analyzer] -> [Optimizer] -> [Extractor] -> [Serializer] -> [Cache] -> [Generator] -> [Output Files]
+```
+
+## Границы
+
+- Core не знает о файловой системе и работает с &[u8] и моделью.
+- Generator не знает о CLI или WASM.
+- CLI и WASM зависят от Core и Generator, но не зависят друг от друга.
+
+## Ключевые зависимости
+
+- usvg: парсинг SVG.
+- resvg: рендеринг для тестов и визуальной валидации.
+- serde: сериализация модели.
+- tera: шаблонизация генератора.
+- wasm-bindgen: FFI слой для web.

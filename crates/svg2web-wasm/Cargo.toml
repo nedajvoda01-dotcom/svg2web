@@ -1,1 +1,21 @@
-# [Config] | Манифест name="svg2web-wasm" version.workspace=true edition.workspace=true [lib] crate-type=["cdylib", "rlib"] [dependencies] svg2web-core.workspace=true svg2web-cache={workspace=true default-features=false features=["memory"]} wasm-bindgen.workspace=true js-sys.workspace=true web-sys.workspace=true console_error_panic_hook.workspace=true [features] default=[] | ЗАВИСИТ_ОТ: svg2web-core svg2web-cache workspace root | ПРОВЕРКИ: wasm-pack build --target web cargo check --target wasm32-unknown-unknown
+[package]
+name = "svg2web-wasm"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+svg2web-core = { path = "../svg2web-core" }
+svg2web-cache = { path = "../svg2web-cache", default-features = false, features = ["memory"] }
+wasm-bindgen.workspace = true
+js-sys.workspace = true
+web-sys.workspace = true
+console_error_panic_hook.workspace = true
+
+[features]
+default = []

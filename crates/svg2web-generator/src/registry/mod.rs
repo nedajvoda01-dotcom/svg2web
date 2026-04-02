@@ -1,1 +1,35 @@
-// [ModuleRoot] | Реестр форматов pub struct FormatRegistry { renderers: HashMap<String Box<dyn FormatRenderer>> } impl FormatRegistry { pub fn new() -> Self pub fn register(&mut self name: &str renderer: Box<dyn FormatRenderer>) pub fn get(&self name: &str) -> Option<&dyn FormatRenderer> pub fn list(&self) -> Vec<&str> } | ЭКСПОРТЫ: FormatRegistry FormatRenderer | ЗАВИСИТ_ОТ: builders | КТО_ИСПОЛЬЗУЕТ: lib.rs formats
+pub mod context;
+
+pub use context::RenderContext;
+
+pub struct RenderedOutput {
+	pub files: Vec<OutputFile>,
+}
+
+pub struct OutputFile {
+	pub name: String,
+	pub content: String,
+}
+
+pub trait FormatRenderer {
+	fn name(&self) -> &str;
+	fn render(&self, ctx: &RenderContext) -> crate::Result<RenderedOutput>;
+}
+
+pub struct FormatRegistry {}
+
+impl FormatRegistry {
+	pub fn new() -> Self {
+		Self {}
+	}
+
+	pub fn list(&self) -> Vec<&str> {
+		vec![]
+	}
+}
+
+impl Default for FormatRegistry {
+	fn default() -> Self {
+		Self::new()
+	}
+}

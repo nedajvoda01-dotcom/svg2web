@@ -1,4 +1,3 @@
-```markdown
 # WASM API Обзор
 
 ## Инициализация
@@ -9,6 +8,8 @@ import init from 'svg2web-wasm';
 // Инициализация WASM модуля
 await init();
 ```
+
+Инициализация через `await init()` обязательна перед любым вызовом `parse_svg`, `analyze_svg`, `optimize_svg`, `extract_assets` или `serialize_to_json`.
 
 ## Основные функции
 
@@ -23,7 +24,7 @@ function parse_svg(svg: string): ParseOutput
 **Параметры:**
 - `svg: string` — содержимое SVG файла
 
-**Возвращает:** `ParseOutput` — объект с полной структурой SVG
+**Возвращает:** строку JSON, которая затем преобразуется в `ParseOutput` на стороне JavaScript/TypeScript.
 
 ### `analyze_svg`
 
@@ -41,16 +42,16 @@ function analyze_svg(svg: string): AnalysisResult
 ### `optimize_svg`
 
 ```typescript
-function optimize_svg(svg: string, config?: OptimizerConfig): ParseOutput
+function optimize_svg(svg: string, config?: string): string
 ```
 
 Оптимизация SVG.
 
 **Параметры:**
 - `svg: string` — содержимое SVG файла
-- `config?: OptimizerConfig` — конфигурация оптимизации
+- `config?: string` — JSON-строка с `OptimizerConfig`
 
-**Возвращает:** `ParseOutput` — оптимизированная модель
+**Возвращает:** JSON-строку с оптимизированной моделью `ParseOutput`
 
 ### `extract_assets`
 
@@ -92,6 +93,8 @@ Rust примитивы автоматически конвертируются 
 | `String` | `string` |
 | `Vec<T>` | `Array<T>` |
 | `Option<T>` | `T \| null` |
+
+Сложные структуры передаются через `serde_wasm_bindgen`, а бинарные данные передаются как `Uint8Array`.
 
 ### Структуры через serde_wasm_bindgen
 
@@ -353,5 +356,4 @@ const result = await converter.convert(svg, {
   styling: 'scoped'
 });
 console.log(result.html);
-```
 ```

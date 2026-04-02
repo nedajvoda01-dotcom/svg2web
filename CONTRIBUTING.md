@@ -7,8 +7,11 @@ Thank you for your interest in contributing to SVG2Web! This document provides g
 1. **Fork the repository** on GitHub
 2. **Clone your fork** locally:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/svg2web.git
+   git clone https://github.com/<your-username>/svg2web.git
    cd svg2web
+
+   # Add upstream remote for syncing with main repository
+   git remote add upstream https://github.com/nedajvoda01-dotcom/svg2web.git
    ```
 3. **Create a branch** for your changes:
    ```bash
@@ -93,9 +96,9 @@ wasm-pack build crates/svg2web-wasm --target web
 
 ## Questions?
 
-- Open an issue for bug reports or feature requests
+- Open an issue for bug reports or feature requests: https://github.com/nedajvoda01-dotcom/svg2web/issues
 - Join discussions in existing issues
-- Contact maintainers via GitHub Discussions (if enabled)
+- Contact maintainers via GitHub Discussions: https://github.com/nedajvoda01-dotcom/svg2web/discussions
 
 ---
 

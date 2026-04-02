@@ -1,4 +1,3 @@
-```markdown
 # svg2web-wasm
 
 WebAssembly биндинги для использования svg2web в браузере.
@@ -286,5 +285,4 @@ interface AnalysisResult {
     maxWidth: number;
   };
 }
-```
 ```

@@ -1,4 +1,3 @@
-```markdown
 # svg2web-generator
 
 Крейт для генерации веб-кода из промежуточного представления SVG.
@@ -182,5 +181,4 @@ let output = generate(&parsed, GenerateOptions {
     responsive: true,
     ..Default::default()
 })?;
-```
 ```

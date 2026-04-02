@@ -1,1 +1,3 @@
-// [ModuleRoot] | Поддержка форматов pub enum FormatType { Vanilla React Vue } pub fn register_format(registry: &mut FormatRegistry) регистрация встроенных | ЭКСПОРТЫ: FormatType register_format | ЗАВИСИТ_ОТ: builders registry | КТО_ИСПОЛЬЗУЕТ: lib.rs
+pub mod builtin;
+
+pub use builtin::{ReactRenderer, VanillaRenderer, VueRenderer};

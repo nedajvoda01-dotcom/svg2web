@@ -1,1 +1,11 @@
-// [ModuleRoot] | Модуль моделей данных re-export всех моделей pub use element::* pub use geometry::* pub use style::* pub use asset::* pub use analysis::* гарантия Serialize Deserialize для всех | ЭКСПОРТЫ: Element Bounds Point Size Color Gradient Font Asset AnalysisResult и все подтипы | ЗАВИСИТ_ОТ: serde | КТО_ИСПОЛЬЗУЕТ: все модули core все зависимые крейты
+pub mod analysis;
+pub mod asset;
+pub mod element;
+pub mod geometry;
+pub mod style;
+
+pub use analysis::*;
+pub use asset::*;
+pub use element::*;
+pub use geometry::*;
+pub use style::*;

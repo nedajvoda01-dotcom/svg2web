@@ -1,1 +1,20 @@
-// [Module] | Контекст рендеринга pub struct RenderContext { pub elements: Vec<SVGElement> pub analysis: AnalysisResult pub options: FormatOptions pub assets: Vec<Asset> } данные для рендерера | ЗАВИСИТ_ОТ: svg2web-core/model svg2web-core/analysis | КТО_ИСПОЛЬЗУЕТ: registry formats builders
+use svg2web_core::{AnalysisResult, Asset, SVGElement};
+
+#[derive(Debug, Clone)]
+pub struct RenderContext {
+	pub root: SVGElement,
+	pub analysis: AnalysisResult,
+	pub assets: Vec<Asset>,
+	pub target: String,
+}
+
+impl RenderContext {
+	pub fn new(root: SVGElement, analysis: AnalysisResult, assets: Vec<Asset>, target: &str) -> Self {
+		Self {
+			root,
+			analysis,
+			assets,
+			target: target.to_string(),
+		}
+	}
+}

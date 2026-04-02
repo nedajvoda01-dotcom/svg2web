@@ -1,1 +1,7 @@
-// [ModuleRoot] | Генерация кода pub fn build(ctx: RenderContext) -> Result<BuildOutput> pub struct BuildOutput { pub files: Vec<OutputFile> pub main_entry: String } orchestration вызовов html css js responsive | ЭКСПОРТЫ: build BuildOutput OutputFile | ЗАВИСИТ_ОТ: readers registry formats | КТО_ИСПОЛЬЗУЕТ: lib.rs
+pub mod css;
+pub mod html;
+pub mod js;
+
+pub use css::CssBuilder;
+pub use html::HtmlBuilder;
+pub use js::JsBuilder;

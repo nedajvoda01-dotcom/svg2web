@@ -1,4 +1,3 @@
-```markdown
 # svg2web-core
 
 Библиотека для парсинга, анализа и оптимизации SVG. Ядро системы SVG2Web, предоставляющее низкоуровневый API для обработки SVG без зависимости от фреймворка или платформы.
@@ -16,7 +15,7 @@ pub fn parse(svg_bytes: &[u8]) -> Result<ParseOutput, Error>
 ### `parse_file`
 
 ```rust
-pub fn parse_file(path: &Path) -> Result<ParseOutput, Error>
+pub fn parse_file(path: &Path) -> Result<ParseOutput, IoError>
 ```
 
 Читает SVG из файла по указанному пути и парсит его. Обёртка над `parse` с файловым I/O.
@@ -254,5 +253,4 @@ fn process_svg(svg_content: &str) -> Result<String, Box<dyn std::error::Error>> 
     let json = serialize_to_json(&optimized)?;
     Ok(json)
 }
-```
 ```

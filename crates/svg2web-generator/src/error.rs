@@ -1,1 +1,24 @@
-// [Module] | Ошибки генератора #[derive(Error Debug)] pub enum Error { #[error("read error: {0}")] ReadError(#[from] std::io::Error) #[error("build error: {0}")] BuildError(String) #[error("render error: {0}")] RenderError(String) #[error("write error: {0}")] WriteError(#[from] std::io::Error) } | ЭКСПОРТЫ: Error Result | ЗАВИСИТ_ОТ: thiserror | КТО_ИСПОЛЬЗУЕТ: все модули lib.rs
+use std::fmt::{Display, Formatter};
+
+#[derive(Debug)]
+pub enum Error {
+	RenderError(String),
+}
+
+impl Error {
+	pub fn render_error(message: &str) -> Self {
+		Self::RenderError(message.to_string())
+	}
+}
+
+impl Display for Error {
+	fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+		match self {
+			Self::RenderError(message) => write!(f, "render error: {message}"),
+		}
+	}
+}
+
+impl std::error::Error for Error {}
+
+pub type Result<T> = std::result::Result<T, Error>;

@@ -1,285 +1,72 @@
-```markdown
 # Установка
 
-## Способ 1: Cargo (рекомендуется)
+Цель: выбрать подходящий способ установки под вашу среду и ограничения.
 
-Установка CLI инструмента через Rust package manager.
+## Сравнение способов
 
-### Системные требования
+| Способ | Требования | Команда | Ограничения |
+|---|---|---|---|
+| Cargo (рекомендуется) | Rust 1.70+, cargo | cargo install svg2web-cli --locked | Нет ограничений по функциям |
+| NPM/WASM | Node.js 18+ | npm install svg2web-wasm | Только parse/analyze/optimize, нет generate, practical limit: SVG < 50MB |
+| Docker | Docker | docker pull ghcr.io/org/svg2web:latest | Нужен volume mount для входных/выходных файлов |
 
-- Rust 1.70 или новее
-- Cargo (устанавливается вместе с Rust)
-- Git
-
-### Установка Rust
-
-```bash
-# Linux / macOS / WSL
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
-# Windows
-# Скачать rustup-init.exe с https://rustup.rs
-```
-
-### Установка svg2web-cli
+## Cargo (полный функционал)
 
 ```bash
-cargo install svg2web-cli
+cargo install svg2web-cli --locked
 ```
 
-### Обновление
-
-```bash
-cargo install --force svg2web-cli
-```
-
-### Проверка
+Проверка:
 
 ```bash
 svg2web --version
-# svg2web 0.2.0
+# expected: svg2web 0.x.x
 ```
 
----
-
-## Способ 2: Docker
-
-### Pull образа
-
-```bash
-docker pull ghcr.io/org/svg2web:latest
-```
-
-### Запуск
-
-```bash
-# Базовый запуск
-docker run --rm ghcr.io/org/svg2web:latest --version
-
-# С volume для файлов
-docker run --rm -v $(pwd):/data ghcr.io/org/svg2web:latest \
-  build /data/input.svg --output /data/output --format react
-
-# Алиас для удобства
-alias svg2web='docker run --rm -v $(pwd):/data ghcr.io/org/svg2web:latest'
-```
-
-### Docker Compose
-
-```yaml
-# docker-compose.yml
-version: '3.8'
-services:
-  svg2web:
-    image: ghcr.io/org/svg2web:latest
-    volumes:
-      - ./:/data
-    working_dir: /data
-    command: --help
-```
-
-```bash
-docker-compose run --rm svg2web build input.svg --output output
-```
-
----
-
-## Способ 3: NPM (WASM)
-
-Установка WASM пакета для использования в браузере.
-
-### Установка
+## NPM (WASM)
 
 ```bash
 npm install svg2web-wasm
 ```
 
-### Использование
+Минимальный запуск:
 
 ```javascript
-import init, { parse_svg, analyze_svg, optimize_svg } from 'svg2web-wasm';
-
-// Инициализация
+import init from 'svg2web-wasm';
 await init();
-
-// Использование
-const svg = '<svg xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40"/></svg>';
-const parsed = parse_svg(svg);
-console.log(parsed.meta.canvas);
 ```
 
-### Ограничения
+Ограничения:
 
-WASM пакет предоставляет **только**:
-- `parse_svg` — парсинг SVG
-- `analyze_svg` — анализ структуры
-- `optimize_svg` — оптимизация
-- `extract_assets` — извлечение ресурсов
-- `serialize_to_json` — сериализация
+- Нет команды generate (только parse/analyze/optimize).
+- Ограничение памяти браузера, для стабильной работы рекомендуется SVG < 50MB.
 
-**Нет** функции `generate` — для генерации кода используйте CLI.
-
----
-
-## Способ 4: Сборка из исходников
-
-### Клонирование
+## Docker
 
 ```bash
-git clone https://github.com/org/svg2web.git
-cd svg2web
+docker pull ghcr.io/org/svg2web:latest
 ```
 
-### Сборка
+Запуск с volume:
 
 ```bash
-# Сборка CLI
-cargo build --release --bin svg2web
-
-# Копирование в PATH
-cp target/release/svg2web ~/.cargo/bin/
+docker run --rm -v $(pwd):/workdir ghcr.io/org/svg2web:latest \
+  build /workdir/input.svg --output /workdir/output
 ```
 
-### Сборка WASM
+Когда использовать:
 
-```bash
-wasm-pack build crates/svg2web-wasm --target web --release
-# Результат: crates/svg2web-wasm/pkg/
-```
+- CI/CD
+- воспроизводимые сборки в изолированной среде
 
----
+## Из исходников (для разработки)
 
-## Проверка установки
+См. подробности в [development/setup.md](../development/setup.md).
 
-### CLI
+## Фичи по платформам
 
-```bash
-# Версия
-svg2web --version
-
-# Справка
-svg2web --help
-
-# Проверка парсинга
-svg2web parse test.svg --output test.json
-```
-
-### Docker
-
-```bash
-docker run --rm ghcr.io/org/svg2web:latest --version
-```
-
-### NPM
-
-```javascript
-import init, { parse_svg } from 'svg2web-wasm';
-
-await init();
-const result = parse_svg('<svg/>');
-console.log('WASM работает!');
-```
-
----
-
-## Системные зависимости
-
-### Linux (Ubuntu/Debian)
-
-```bash
-# Для сборки из исходников
-sudo apt update
-sudo apt install -y \
-    build-essential \
-    pkg-config \
-    libssl-dev \
-    libfontconfig1-dev \
-    libxcb-render0-dev \
-    libxcb-shape0-dev \
-    libxcb-xfixes0-dev \
-    libxcb1-dev
-```
-
-### Linux (Fedora)
-
-```bash
-sudo dnf install \
-    gcc \
-    pkg-config \
-    openssl-devel \
-    fontconfig-devel \
-    libxcb-devel
-```
-
-### macOS
-
-```bash
-# Установка Xcode Command Line Tools
-xcode-select --install
-
-# Установка openssl
-brew install openssl
-export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl/lib/pkgconfig"
-```
-
-### Windows
-
-Установите:
-- [Build Tools for Visual Studio](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2022)
-- [Git for Windows](https://git-scm.com/download/win)
-
----
-
-## Установка дополнительных инструментов
-
-```bash
-# Для разработки WASM
-cargo install wasm-pack
-
-# Для бенчмарков
-cargo install cargo-criterion
-
-# Для проверки покрытия
-cargo install cargo-tarpaulin
-
-# Для аудита зависимостей
-cargo install cargo-audit
-```
-
----
-
-## Удаление
-
-### Cargo
-
-```bash
-cargo uninstall svg2web-cli
-```
-
-### Docker
-
-```bash
-docker rmi ghcr.io/org/svg2web:latest
-```
-
-### NPM
-
-```bash
-npm uninstall svg2web-wasm
-```
-
-### Из исходников
-
-```bash
-rm -rf svg2web
-rm ~/.cargo/bin/svg2web
-```
-
----
-
-## Следующие шаги
-
-- [Быстрый старт](/getting-started/quickstart.md) — первый проект за 5 минут
-- [Полный пример](/getting-started/first-project.md) — от SVG до деплоя
-- [Конфигурация](/usage/config.md) — настройка под свои нужды
-```
+| Фича | Cargo | NPM/WASM | Docker |
+|---|---|---|---|
+| Parse | ✅ | ✅ | ✅ |
+| Generate | ✅ | ❌ | ✅ |
+| Cache | ✅ | ❌ (memory only) | ✅ |

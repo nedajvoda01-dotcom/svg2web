@@ -1,0 +1,398 @@
+.
+├── .ai
+│   ├── README.md
+│   ├── context.md
+│   └── session-checklist.md
+├── .cargo
+│   └── config.toml
+├── .github
+│   └── workflows
+│       ├── ci.yml
+│       ├── release.yml
+│       └── wasm.yml
+├── CHANGELOG.md
+├── CONTRIBUTING.md
+├── Cargo.lock
+├── Cargo.toml
+├── LICENSE
+├── README.md
+├── ROOT.txt
+├── STATUS.md
+├── clippy.toml
+├── crates
+│   ├── svg2web-cache
+│   │   ├── Cargo.toml
+│   │   ├── src
+│   │   │   ├── disk.rs
+│   │   │   ├── key.rs
+│   │   │   ├── lib.rs
+│   │   │   ├── manager.rs
+│   │   │   └── memory.rs
+│   │   └── tests
+│   │       └── cache_test.rs
+│   ├── svg2web-cli
+│   │   ├── Cargo.toml
+│   │   ├── src
+│   │   │   ├── commands
+│   │   │   │   ├── analyze.rs
+│   │   │   │   ├── build.rs
+│   │   │   │   ├── generate.rs
+│   │   │   │   ├── mod.rs
+│   │   │   │   ├── optimize.rs
+│   │   │   │   └── parse.rs
+│   │   │   ├── config
+│   │   │   │   ├── formats
+│   │   │   │   │   ├── react.toml
+│   │   │   │   │   ├── vanilla.toml
+│   │   │   │   │   └── vue.toml
+│   │   │   │   └── mod.rs
+│   │   │   ├── logger.rs
+│   │   │   └── main.rs
+│   │   └── tests
+│   │       ├── cli_test.rs
+│   │       ├── config_test.rs
+│   │       └── examples_validation.rs
+│   ├── svg2web-core
+│   │   ├── Cargo.toml
+│   │   ├── benches
+│   │   │   ├── analyze_bench.rs
+│   │   │   ├── optimize_bench.rs
+│   │   │   └── parse_bench.rs
+│   │   ├── src
+│   │   │   ├── analyzer
+│   │   │   │   ├── complexity.rs
+│   │   │   │   ├── components.rs
+│   │   │   │   ├── hierarchy.rs
+│   │   │   │   └── mod.rs
+│   │   │   ├── error.rs
+│   │   │   ├── extractor
+│   │   │   │   ├── external.rs
+│   │   │   │   ├── fonts.rs
+│   │   │   │   ├── images.rs
+│   │   │   │   └── mod.rs
+│   │   │   ├── lib.rs
+│   │   │   ├── model
+│   │   │   │   ├── analysis.rs
+│   │   │   │   ├── asset.rs
+│   │   │   │   ├── element.rs
+│   │   │   │   ├── geometry.rs
+│   │   │   │   ├── mod.rs
+│   │   │   │   └── style.rs
+│   │   │   ├── optimizer
+│   │   │   │   ├── deduplication.rs
+│   │   │   │   ├── minifier.rs
+│   │   │   │   ├── mod.rs
+│   │   │   │   └── path_simplifier.rs
+│   │   │   ├── parser
+│   │   │   │   ├── geometry.rs
+│   │   │   │   ├── mod.rs
+│   │   │   │   ├── styles.rs
+│   │   │   │   ├── svg.rs
+│   │   │   │   └── text.rs
+│   │   │   ├── serializer
+│   │   │   │   ├── binary.rs
+│   │   │   │   ├── json.rs
+│   │   │   │   └── mod.rs
+│   │   │   └── validator.rs
+│   │   └── tests
+│   │       ├── analyzer_test.rs
+│   │       ├── contracts_test.rs
+│   │       ├── fixtures
+│   │       │   ├── complex.svg
+│   │       │   ├── gradients.svg
+│   │       │   ├── simple.svg
+│   │       │   └── text.svg
+│   │       ├── optimizer_test.rs
+│   │       ├── parser_test.rs
+│   │       ├── property_based
+│   │       │   └── optimization.rs
+│   │       └── serializer_test.rs
+│   ├── svg2web-generator
+│   │   ├── Cargo.toml
+│   │   ├── src
+│   │   │   ├── builders
+│   │   │   │   ├── css.rs
+│   │   │   │   ├── html.rs
+│   │   │   │   ├── js.rs
+│   │   │   │   ├── mod.rs
+│   │   │   │   └── responsive.rs
+│   │   │   ├── components
+│   │   │   │   ├── mod.rs
+│   │   │   │   └── template.rs
+│   │   │   ├── error.rs
+│   │   │   ├── formats
+│   │   │   │   ├── builtin
+│   │   │   │   │   ├── react.rs
+│   │   │   │   │   ├── vanilla.rs
+│   │   │   │   │   └── vue.rs
+│   │   │   │   ├── mod.rs
+│   │   │   │   └── tera_adapter.rs
+│   │   │   ├── lib.rs
+│   │   │   ├── output
+│   │   │   │   ├── mod.rs
+│   │   │   │   ├── writer.rs
+│   │   │   │   └── zip.rs
+│   │   │   ├── readers
+│   │   │   │   ├── binary.rs
+│   │   │   │   ├── json.rs
+│   │   │   │   └── mod.rs
+│   │   │   └── registry
+│   │   │       ├── context.rs
+│   │   │       └── mod.rs
+│   │   └── tests
+│   │       ├── api_reference_test.rs
+│   │       ├── component_detection.rs
+│   │       ├── format_test.rs
+│   │       ├── generator_test.rs
+│   │       ├── registry_test.rs
+│   │       └── snapshots
+│   │           ├── html_output.snap
+│   │           ├── react_output.snap
+│   │           └── vue_output.snap
+│   └── svg2web-wasm
+│       ├── Cargo.toml
+│       ├── pkg
+│       │   ├── README.md
+│       │   ├── package.json
+│       │   ├── svg2web.d.ts
+│       │   ├── svg2web.js
+│       │   └── svg2web_bg.wasm
+│       ├── src
+│       │   ├── analyzer.rs
+│       │   ├── cache.rs
+│       │   ├── lib.rs
+│       │   ├── memory.rs
+│       │   └── utils.rs
+│       └── tests
+│           └── wasm_api.rs
+├── deny.toml
+├── docs
+│   ├── README.md
+│   ├── api-reference
+│   │   ├── json-schema
+│   │   │   ├── assets.md
+│   │   │   ├── content.md
+│   │   │   ├── geometry.md
+│   │   │   ├── meta.md
+│   │   │   ├── overview.md
+│   │   │   ├── structure.md
+│   │   │   └── styles.md
+│   │   ├── rust
+│   │   │   ├── cache.md
+│   │   │   ├── core.md
+│   │   │   ├── generator.md
+│   │   │   └── wasm.md
+│   │   └── wasm-js
+│   │       ├── errors.md
+│   │       ├── functions.md
+│   │       ├── index.md
+│   │       └── types.md
+│   ├── contributing
+│   │   ├── architecture-decisions.md
+│   │   ├── code-style.md
+│   │   ├── guidelines.md
+│   │   └── plugin-development.md
+│   ├── development
+│   │   ├── benchmarking.md
+│   │   ├── debugging.md
+│   │   ├── releasing.md
+│   │   ├── setup.md
+│   │   └── testing.md
+│   ├── getting-started
+│   │   ├── first-project.md
+│   │   ├── installation.md
+│   │   └── quickstart.md
+│   ├── internals
+│   │   ├── architecture.md
+│   │   ├── cache.md
+│   │   ├── core
+│   │   │   ├── extraction.md
+│   │   │   ├── optimization.md
+│   │   │   ├── parsing.md
+│   │   │   └── serialization.md
+│   │   ├── generator
+│   │   │   ├── component-detection.md
+│   │   │   ├── output-formats.md
+│   │   │   └── templates.md
+│   │   ├── wasm-bindings.md
+│   │   └── web
+│   │       ├── state-management.md
+│   │       └── workers.md
+│   ├── migration
+│   │   ├── changelog.md
+│   │   ├── deprecations.md
+│   │   └── v0.1-to-v0.2.md
+│   └── usage
+│       ├── cli.md
+│       ├── config.md
+│       ├── frameworks
+│       │   ├── html-css.md
+│       │   ├── react.md
+│       │   ├── vanilla.md
+│       │   └── vue.md
+│       └── web-interface.md
+├── examples
+│   ├── advanced
+│   │   ├── complex-animation-free
+│   │   │   ├── Cargo.toml
+│   │   │   ├── README.md
+│   │   │   ├── config.toml
+│   │   │   ├── input.svg
+│   │   │   └── output
+│   │   │       ├── index.html
+│   │   │       ├── script.js
+│   │   │       └── styles.css
+│   │   ├── custom-fonts
+│   │   │   ├── Cargo.toml
+│   │   │   ├── README.md
+│   │   │   ├── config.toml
+│   │   │   ├── fonts
+│   │   │   │   └── CustomFont.woff2
+│   │   │   ├── input.svg
+│   │   │   └── output
+│   │   │       ├── assets
+│   │   │       │   └── CustomFont.woff2
+│   │   │       ├── index.html
+│   │   │       └── styles.css
+│   │   └── external-images
+│   │       ├── Cargo.toml
+│   │       ├── README.md
+│   │       ├── config.toml
+│   │       ├── input.svg
+│   │       └── output
+│   │           ├── assets
+│   │           │   └── external-photo.webp
+│   │           └── index.html
+│   ├── basic
+│   │   ├── Cargo.toml
+│   │   ├── README.md
+│   │   ├── config.toml
+│   │   ├── expected
+│   │   │   ├── index.html
+│   │   │   ├── script.js
+│   │   │   └── styles.css
+│   │   └── input.svg
+│   ├── react-component
+│   │   ├── Cargo.toml
+│   │   ├── README.md
+│   │   ├── input.svg
+│   │   └── output
+│   │       └── IconComponent.tsx
+│   ├── responsive
+│   │   ├── Cargo.toml
+│   │   ├── README.md
+│   │   ├── config.toml
+│   │   ├── input.svg
+│   │   └── output
+│   │       ├── index.html
+│   │       └── responsive.css
+│   └── vue-component
+│       ├── Cargo.toml
+│       ├── README.md
+│       ├── input.svg
+│       └── output
+│           └── IconComponent.vue
+├── plugins
+│   ├── README.md
+│   ├── solid
+│   │   ├── Cargo.toml
+│   │   └── src
+│   │       └── lib.rs
+│   ├── svelte
+│   │   ├── Cargo.toml
+│   │   └── src
+│   │       └── lib.rs
+│   └── tests
+│       └── plugin_loading.rs
+├── project_tree.txt
+├── rustfmt.toml
+├── scripts
+│   ├── ci
+│   │   ├── check-branch-name.sh
+│   │   └── check-commit-message.sh
+│   ├── examples_run.sh
+│   ├── migrations
+│   │   └── v0.1-to-v0.2.sh
+│   └── verify-examples.sh
+├── tests
+│   ├── README.md
+│   ├── architecture
+│   │   └── boundaries.rs
+│   ├── contributing
+│   │   └── contracts.rs
+│   ├── development
+│   │   ├── benchmarking_contract.rs
+│   │   ├── debugging_contract.rs
+│   │   ├── releasing_contract.rs
+│   │   ├── setup_contract.rs
+│   │   └── testing_contract.rs
+│   ├── docs
+│   │   └── changelog_lint.rs
+│   ├── docs_integrity.rs
+│   ├── examples_validation.rs
+│   ├── fixtures
+│   │   └── README.md
+│   ├── json_schema
+│   │   └── validation.rs
+│   ├── migration
+│   │   └── v01_v02.rs
+│   └── snapshots
+│       └── README.md
+├── web
+│   ├── e2e
+│   │   ├── web-interface.spec.ts
+│   │   └── worker.spec.ts
+│   ├── index.html
+│   ├── package.json
+│   ├── public
+│   │   └── demo
+│   │       ├── dashboard.svg
+│   │       └── landing.svg
+│   ├── src
+│   │   ├── App.tsx
+│   │   ├── components
+│   │   │   ├── AnalysisComponents.tsx
+│   │   │   ├── AnalysisMetrics.tsx
+│   │   │   ├── AnalysisPanel.tsx
+│   │   │   ├── Download.tsx
+│   │   │   ├── FormatSelector.tsx
+│   │   │   ├── Preview.tsx
+│   │   │   ├── PreviewCanvas.tsx
+│   │   │   ├── PreviewToolbar.tsx
+│   │   │   ├── Progress.tsx
+│   │   │   ├── Settings.tsx
+│   │   │   └── Uploader.tsx
+│   │   ├── hooks
+│   │   │   ├── useAnalyzer.ts
+│   │   │   ├── useConverter.test.ts
+│   │   │   ├── useConverter.ts
+│   │   │   ├── useWorker.test.ts
+│   │   │   └── useWorker.ts
+│   │   ├── lib
+│   │   │   ├── svg2web.test.ts
+│   │   │   ├── svg2web.ts
+│   │   │   └── wasm-package.test.ts
+│   │   ├── main.tsx
+│   │   ├── styles
+│   │   │   └── globals.css
+│   │   ├── types
+│   │   │   └── index.ts
+│   │   └── workers
+│   │       └── convert.worker.ts
+│   ├── tsconfig.json
+│   └── vite.config.ts
+└── xtask
+    ├── Cargo.toml
+    └── src
+        ├── commands
+        │   ├── bench.rs
+        │   ├── build.rs
+        │   ├── clean.rs
+        │   ├── lint.rs
+        │   ├── mod.rs
+        │   ├── publish.rs
+        │   ├── test.rs
+        │   └── verify.rs
+        └── main.rs
+
+108 directories, 288 files

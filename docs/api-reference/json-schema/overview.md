@@ -1,4 +1,3 @@
-```markdown
 # Обзор промежуточного формата
 
 SVG2Web использует 6-секционный JSON формат для передачи данных между парсером и генератором. Это промежуточное представление (Intermediate Representation) позволяет разделить фазы анализа и кодогенерации, обеспечивая кэширование, инкрементальные сборки и гибкость в обработке.
@@ -96,10 +95,9 @@ output/
 
 ```bash
 # Полный pipeline с единым JSON
-svg2web parse design.svg | svg2web generate --format react
+svg2web parse design.svg | svg2web generate --framework react
 
 # Инкрементальная сборка с разделенными секциями
 svg2web parse design.svg --split-output ./ir/
 # Изменяем только цвета в styles.json
-svg2web generate ./ir/ --format vue --use-cache
-```
+svg2web generate ./ir/ --framework vue --use-cache

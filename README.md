@@ -2,7 +2,7 @@
 
 Конвертер SVG в веб-компоненты. Превращайте SVG-файлы из Figma/Illustrator в готовые React, Vue или Vanilla JS компоненты с оптимизацией и извлечением ресурсов.
 
-[![CI](https://github.com/org/svg2web/actions/workflows/ci.yml/badge.svg)](https://github.com/org/svg2web/actions/workflows/ci.yml)
+[![CI](https://github.com/nedajvoda01-dotcom/svg2web/actions/workflows/ci.yml/badge.svg)](https://github.com/nedajvoda01-dotcom/svg2web/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Crates.io](https://img.shields.io/crates/v/svg2web-cli)](https://crates.io/crates/svg2web-cli)
 [![npm](https://img.shields.io/npm/v/svg2web-wasm)](https://www.npmjs.com/package/svg2web-wasm)
@@ -14,10 +14,10 @@
 cargo install svg2web-cli
 
 # Конвертация SVG в React-компонент
-svg2web build input.svg --format react
+svg2web build input.svg --framework react
 
 # Или в Vue SFC
-svg2web build input.svg --format vue --output ./components
+svg2web build input.svg --framework vue --output ./components
 ```
 
 **Онлайн-демо**: [svg2web.vercel.app](https://svg2web.vercel.app)
@@ -56,34 +56,43 @@ npm install svg2web-wasm
 ### Docker
 ```bash
 docker pull ghcr.io/org/svg2web:latest
-docker run -v $(pwd):/work ghcr.io/org/svg2web build /work/input.svg --format react
+docker run -v $(pwd):/work ghcr.io/org/svg2web build /work/input.svg --framework react
 ```
 
 ## Использование
 
 ### CLI команды
 - `svg2web parse input.svg --output model.json` — парсинг в промежуточный формат
-- `svg2web generate model.json --format react` — генерация кода из JSON
-- `svg2web build input.svg --format vue --config svg2web.toml` — полный pipeline
+- `svg2web generate model.json --framework react` — генерация кода из JSON
+- `svg2web build input.svg --framework vue --config svg2web.toml` — полный pipeline
 - `svg2web optimize input.svg --output optimized.svg` — только оптимизация
 
 ### Конфигурация (`svg2web.toml`)
 ```toml
 [generate]
-format = "react"
-typescript = true
+framework = "react"
 styling = "tailwind"
+responsive = true
+
+[generate.components]
+detect = true
+min_size = 3
+naming = "pascal"
 
 [optimizer]
 simplify_paths = true
 deduplicate = true
+
+[extractor]
+extract_images = true
+convert_to_webp = true
 webp_quality = 85
 ```
 
 ## Ссылки
 
 - **Демо**: [svg2web.vercel.app](https://svg2web.vercel.app)
-- **Документация**: [github.com/org/svg2web/tree/main/docs](https://github.com/org/svg2web/tree/main/docs)
+- **Документация**: [docs/README.md](docs/README.md)
 - **Crates.io**: [crates.io/crates/svg2web-cli](https://crates.io/crates/svg2web-cli)
 - **NPM**: [npmjs.com/package/svg2web-wasm](https://www.npmjs.com/package/svg2web-wasm)
 

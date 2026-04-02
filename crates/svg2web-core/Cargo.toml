@@ -1,1 +1,26 @@
-# [Config] | Манифест крейта name="svg2web-core" version.workspace=true edition.workspace=true authors.workspace=true license.workspace=true repository.workspace=true [lib] name="svg2web_core" [dependencies] usvg.workspace=true resvg.workspace=true thiserror.workspace=true serde.workspace=true serde_json.workspace=true [features] default=[] binary-format=["dep:bincode"] webp=["dep:webp"] [dev-dependencies] criterion.workspace=true tempfile="3.0" | ЗАВИСИТ_ОТ: workspace root | ПРОВЕРКИ: cargo check -p svg2web-core cargo test -p svg2web-core no-std compatible при default features
+[package]
+name = "svg2web-core"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[lib]
+name = "svg2web_core"
+
+[dependencies]
+usvg.workspace = true
+resvg.workspace = true
+thiserror.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+bincode = { workspace = true, optional = true }
+webp = { workspace = true, optional = true }
+
+[features]
+default = []
+binary-format = ["dep:bincode"]
+webp = ["dep:webp"]
+
+[dev-dependencies]

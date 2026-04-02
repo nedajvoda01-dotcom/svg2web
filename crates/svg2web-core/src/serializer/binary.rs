@@ -1,1 +1,27 @@
-// [Module] | Бинарная сериализация pub struct BinarySerializer; impl BinarySerializer { pub fn serialize(element: &SVGElement) -> Result<Vec<u8>> pub fn deserialize(data: &[u8]) -> Result<SVGElement> } формат bincode версия для совместимости compact быстрый | ЗАВИСИТ_ОТ: bincode feature model::element | КТО_ИСПОЛЬЗУЕТ: mod.rs
+use super::{Error, Result};
+use crate::model::SVGElement;
+
+#[derive(Debug, Default)]
+pub struct BinarySerializer;
+
+impl BinarySerializer {
+	#[cfg(feature = "binary-format")]
+	pub fn serialize(element: &SVGElement) -> Result<Vec<u8>> {
+		bincode::serialize(element).map_err(Error::from)
+	}
+
+	#[cfg(not(feature = "binary-format"))]
+	pub fn serialize(_element: &SVGElement) -> Result<Vec<u8>> {
+		Err(Error::BinaryDisabled)
+	}
+
+	#[cfg(feature = "binary-format")]
+	pub fn deserialize(data: &[u8]) -> Result<SVGElement> {
+		bincode::deserialize(data).map_err(Error::from)
+	}
+
+	#[cfg(not(feature = "binary-format"))]
+	pub fn deserialize(_data: &[u8]) -> Result<SVGElement> {
+		Err(Error::BinaryDisabled)
+	}
+}

@@ -1,1 +1,39 @@
-<!-- [Doc] | Web Workers. Инициализация WASM в воркере: importScripts или ES модуль, загрузка wasm бинарника, вызов init(). Коммуникация с main thread: postMessage с transferable objects для больших данных, типизированные сообщения (PARSE, OPTIMIZE, GENERATE, ERROR). Передача больших данных: ArrayBuffer для SVG, Uint8Array для изображений, избегать копирование через structured clone. Жизненный цикл: создание воркера, инициализация, обработка запросов, terminate при unload -->
+<!-- [Doc] | Архитектура Web Workers: инициализация wasm в воркере, протокол сообщений и жизненный цикл. -->
+
+# Web Workers
+
+## Инициализация воркера
+
+- Используется ES module worker, importScripts как fallback для старых окружений.
+- wasm бинарник загружается внутри воркера через fetch + WebAssembly.instantiate.
+- После загрузки вызывается init() модуля.
+
+## Коммуникация
+
+- postMessage с transferable objects, чтобы переносить ArrayBuffer без копирования.
+- Типы сообщений:
+
+```text
+enum MessageType {
+  PARSE,
+  OPTIMIZE,
+  GENERATE,
+  ERROR,
+  PROGRESS
+}
+```
+
+- Передача следует structured clone algorithm (передаем plain objects, ArrayBuffer, typed arrays).
+
+## Жизненный цикл
+
+- Создание: new Worker().
+- Инициализация: загрузка wasm обычно занимает ~1-2s.
+- Обработка: очередь запросов, пока воркер активен.
+- Завершение: terminate при unload страницы.
+
+## Передача больших данных
+
+- SVG отправляется как ArrayBuffer, а не строка.
+- Изображения передаются как Uint8Array.
+- Для генерации больших результатов используется chunked response (streaming по частям).

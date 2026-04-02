@@ -1,0 +1,220 @@
+# .cursorrules
+# Правила для AI помощников (Cursor, Copilot, Claude, GPT)
+# Автоматически подгружается Cursor IDE при работе с проектом
+
+## ОБЯЗАТЕЛЬНО ПРОЧИТАТЬ ПЕРЕД КОДОМ
+
+1. Читай `.ai/context.md` — это твой GPS
+2. Смотри `STATUS.md` — какие модули уже реализованы
+3. Максимум 3-4 файла за сеанс (лучше маленькие итерации)
+4. После кода запусти: `cargo check`, `cargo test`, `./scripts/verify-examples.sh`
+5. Обнови `STATUS.md` — отметь `[x]` готовые модули
+
+---
+
+## ЖЁСТКИЕ ЗАПРЕТЫ (HARD RULES)
+
+### ❌ НИКОГДА
+- `unwrap()` в production коде (только в #[cfg(test)])
+- `expect()` в production коде (только в #[cfg(test)])
+- `std::fs::*` в svg2web-core и svg2web-generator (только в svg2web-cli!)
+- `tokio` в svg2web-wasm (wasm32-unknown-unknown не поддерживает runtime)
+- `sled` в svg2web-wasm (только MemoryCache с feature="memory")
+- `println!` или `eprintln!` (используй `tracing::info!/error!`)
+- `pub fn` без rustdoc комментария с примером
+- Импорты из cli в generator, из generator в core
+- `std::process::exit()` (возвращай Result вместо exit)
+
+### ✅ РАЗРЕШЕНО ТОЛЬКО в #[cfg(test)] блоках и tests/*.rs
+```rust
+#[cfg(test)]
+mod tests {
+    use super::*;
+    
+    #[test]
+    fn example() {
+        let data = std::fs::read_to_string("...").unwrap(); // OK
+        let result = some_func().unwrap(); // OK
+    }
+}
+```
+
+---
+
+## АРХИТЕКТУРА И ЗАВИСИМОСТИ
+
+```
+svg2web-core          ← ОСНОВА (чистые функции, никакого IO)
+    ↓
+svg2web-cache         ← кэширование (может быть отложено)
+    ↓
+svg2web-generator     ← кодогенерация (зависит от core)
+    ↓
+svg2web-cli           ← CLI командная строка (только слой IO)
+    ↓
+svg2web-wasm          ← браузер (нет tokio, только memory cache)
+    ↓
+web/src/              ← React UI
+```
+
+### Запреты по крейтам:
+- **core**: NO std::fs, NO tokio, NO sled (чистая логика)
+- **cache**: от core, может токио/сled (опционально)
+- **generator**: от core+cache, NO cli/wasm импорты
+- **cli**: от всех, МОЖЕТ std::fs/tokio
+- **wasm**: от core+cache[memory], NO tokio, NO sled, NO std::fs
+
+---
+
+## ПОРЯДОК РЕАЛИЗАЦИИ (СЛЕДУЙ!)
+
+1. **svg2web-core/src/model/** ← START HERE
+   - element.rs (SVGElement, ElementType, Node)
+   - geometry.rs (Bounds, Point, Transform, PathData)
+   - style.rs (Style, Color, Font, Gradient)
+   - asset.rs (Asset types)
+   - analysis.rs (Component, Metrics)
+
+2. **svg2web-core/src/parser/**
+   - svg.rs (UsvgParser wrapper)
+   - geometry.rs (rect, circle, path conversion)
+   - styles.rs (CSS parsing)
+   - text.rs (font detection)
+
+3. **svg2web-core/src/{optimizer,extractor,serializer,validator}**
+
+4. **svg2web-cache** (если не заблокирован)
+
+5. **svg2web-generator/**
+
+6. **svg2web-cli/**
+
+7. **svg2web-wasm/**
+
+8. **web/src/**
+
+---
+
+## ПЕРЕД COMMIT
+
+```bash
+# Обязательно запустить:
+cargo check --workspace
+cargo test -p svg2web-core  (или другой crate если трогал)
+cargo clippy -- -D warnings
+cargo fmt --check
+bash ./scripts/verify-examples.sh
+
+# Если что-то красное — РАЗБИРАЙСЯ перед commit
+```
+
+---
+
+## ПРИМЕРЫ
+
+### ✅ ПРАВИЛЬНЫЙ КОД
+```rust
+/// Парсирует SVG из строки.
+///
+/// # Arguments
+/// * `svg` - SVG содержимое
+///
+/// # Example
+/// ```
+/// let result = parse("<?xml...>").unwrap();
+/// assert!(!result.elements.is_empty());
+/// ```
+pub fn parse(svg: &str) -> Result<ParseOutput, Error> {
+    // логика
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_parse() {
+        let svg = include_str!("fixtures/test.svg");
+        let result = parse(svg).unwrap(); // OK в тестах!
+        assert!(!result.elements.is_empty());
+    }
+}
+```
+
+### ❌ НЕПРАВИЛЬНЫЙ КОД
+```rust
+pub fn parse(svg: &str) -> ParseOutput {
+    let tree = usvg::Tree::from_str(svg).unwrap(); // ❌ unwrap в production!
+    let data = std::fs::read("file.svg").unwrap(); // ❌ std::fs в core!
+    println!("parsed"); // ❌ println в lib!
+    parse_impl(tree)
+}
+```
+
+---
+
+## ЕСЛИ ЗАВИСИШЬ/УЛУЧШАЕШЬ МОДУЛЬ
+
+Перед тем как менять что-то в `docs/`:
+```bash
+grep -r "старое-имя" tests/ crates/*/tests/
+```
+
+**Почему:** Тесты проверяют контракты документации. Если удалишь слово из docs без обновления тестов — CI упадет.
+
+---
+
+## STATUS.md И ОТЧЕТЫ
+
+После каждого сеанса:
+1. Отметь `[x]` готовые модули в STATUS.md
+2. Напиши краткий отчёт: что реализовал, что остаток на next session
+3. Пересчитай таблицу прогресса (Реализовано / Всего)
+
+Пример:
+```markdown
+### model/
+- [x] `model/element.rs` — `SVGElement`, `Bounds`, `Transform`
+- [x] `model/geometry.rs` — `Point`, `PathData`, `Rect`
+- [ ] `model/style.rs` — `Style`, `Color` (TODO: next session)
+```
+
+---
+
+## ПЕРВЫЙ ЗАПРОС (используй как шаблон)
+
+```
+Задача: Реализуй foundation layer модели svg2web-core.
+
+ФАЙЛЫ (максимум на этот сеанс):
+1. src/model/element.rs - SVGElement, ElementType, Node (структуры только)
+2. src/model/geometry.rs - Bounds, Point, Transform, PathData
+
+ТРЕБОВАНИЯ:
+- Только структуры и impl Default / Clone / Debug
+- Все поля pub, Serialize/Deserialize через serde
+- Никакой логики, никакого unwrap
+- Смотри docs/api-reference/rust/core.md для точных сигнатур
+- Смотри STATUS.md чекбоксы 1-4
+
+ПРОВЕРКА:
+- cargo check -p svg2web-core (должно компилироваться)
+- cargo test -p svg2web-core (должны пройти тесты)
+- ./scripts/verify-examples.sh (smoke checks должны пройти)
+- Обнови STATUS.md (отметь [x] что реализовал)
+```
+
+---
+
+## КОНТАКТЫ И ССЫЛКИ
+
+- **Архитектура:** `docs/internals/architecture.md`
+- **API контракты:** `docs/api-reference/` (смотри rust/, wasm-js/, json-schema/)
+- **Примеры:** `examples/basic/expected/` — это golden truth
+- **Мой статус:** `STATUS.md` (66 чекбоксов)
+- **Мой контекст:** `.ai/context.md`
+- **Мой процесс:** `.ai/session-checklist.md`
+
+---
+
+**Помни:** Лучше 10 маленьких, проверенных итераций чем 1 огромная перезапись.

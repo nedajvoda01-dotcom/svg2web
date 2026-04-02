@@ -1,1 +1,20 @@
-// [Command] | Команда test-all. cargo test --workspace, wasm-pack test crates/svg2web-wasm --headless, npm test --prefix web. Параллельный или последовательный запуск с остановкой при ошибке
+use std::process::Command;
+
+fn run_cmd(program: &str, args: &[&str]) -> Result<(), String> {
+    let status = Command::new(program)
+        .args(args)
+        .status()
+        .map_err(|e| format!("failed to run {program}: {e}"))?;
+    if status.success() {
+        Ok(())
+    } else {
+        Err(format!("command failed: {} {}", program, args.join(" ")))
+    }
+}
+
+pub fn run() -> Result<(), String> {
+    run_cmd("cargo", &["test", "--workspace"])?;
+    run_cmd("wasm-pack", &["test", "crates/svg2web-wasm", "--headless"])?;
+    run_cmd("npm", &["test", "--prefix", "web"])?;
+    Ok(())
+}

@@ -1,1 +1,11 @@
-// [Binary] | Точка входа CLI #[tokio::main] async fn main() -> Result<()> { let args = Cli::parse(); env_logger::init(); commands::run(args.command).await } парсинг аргументов инициализация логгера dispatch | ЭКСПОРТЫ: main | ЗАВИСИТ_ОТ: commands config logger | КТО_ИСПОЛЬЗУЕТ: cargo run --bin svg2web
+use clap::Parser;
+
+use svg2web_cli::commands::{run, Cli};
+use svg2web_cli::logger::init_logger;
+
+#[tokio::main]
+async fn main() -> anyhow::Result<()> {
+	init_logger();
+	let cli = Cli::parse();
+	run(cli).await
+}

@@ -1,1 +1,17 @@
-// [Module] | Система ошибок #[derive(Error Debug)] pub enum Error { #[error("parse error: {0}")] ParseError(#[from] ParseError) #[error("analyze error: {0}")] AnalyzeError(String) #[error("optimize error: {0}")] OptimizeError(String) #[error("extract error: {0}")] ExtractError(#[from] ExtractError) #[error("serialize error: {0}")] SerializeError(#[from] serde_json::Error) #[error("io error: {0}")] IoError(#[from] std::io::Error) } pub type Result<T> = std::result::Result<T Error>; | ЭКСПОРТЫ: Error Result ParseError ExtractError | ЗАВИСИТ_ОТ: thiserror serde_json std::io | КТО_ИСПОЛЬЗУЕТ: все модули lib.rs
+use thiserror::Error;
+
+#[derive(Debug, Error)]
+pub enum Error {
+	#[error("parse error: {0}")]
+	Parse(#[from] crate::parser::ParseError),
+	#[error("validation error: {0}")]
+	Validation(#[from] crate::validator::ValidationError),
+	#[error("optimize error: {0}")]
+	Optimize(#[from] crate::optimizer::Error),
+	#[error("extract error: {0}")]
+	Extract(#[from] crate::extractor::Error),
+	#[error("serialize error: {0}")]
+	Serialize(#[from] crate::serializer::Error),
+}
+
+pub type Result<T> = std::result::Result<T, Error>;

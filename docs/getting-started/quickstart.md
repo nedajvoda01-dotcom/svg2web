@@ -1,68 +1,60 @@
-```markdown
 # Быстрый старт
 
-## 1. Установка
+## Предусловия
 
-```bash
-cargo install svg2web-cli
-```
+- svg2web CLI уже установлен.
+- Если еще не установлен, используйте: [Установка](installation.md).
 
-## 2. Подготовьте SVG файл
+## Шаг 1: Сборка компонента
 
-Создайте `icon.svg`:
+1. Создайте файл `logo.svg`:
 
 ```svg
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <circle cx="12" cy="12" r="10" fill="none" stroke="blue" stroke-width="2"/>
-  <path d="M12 8v4l3 3" stroke="blue" stroke-width="2"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="40" fill="blue" />
 </svg>
 ```
 
-## 3. Сгенерируйте React компонент
+2. Выполните команду:
 
 ```bash
-svg2web build icon.svg --output ./my-icon --format react
+svg2web build logo.svg --output ./output --format react
 ```
 
-## 4. Посмотрите результат
+Примечание: для быстрого старта `svg2web.toml` не нужен, команда выше работает на дефолтах.
+
+## Шаг 2: Проверка результата
+
+В папке `output` появятся файлы:
+
+```plaintext
+output/
+  components/Logo.tsx
+  index.html
+  styles.css
+```
+
+- `components/Logo.tsx`: React-компонент.
+- `index.html`: HTML-точка входа для предпросмотра.
+- `styles.css`: стили для компонента.
+
+## Шаг 3: Запуск в браузере
+
+1. Перейдите в папку `output`:
 
 ```bash
-cd my-icon
-ls
-# src/Icon.tsx   Icon.module.css   index.html
+cd output
 ```
 
-## 5. Откройте в браузере
+2. Запустите локальный сервер:
 
 ```bash
-open index.html
-# или
-start index.html  # Windows
+npx serve
 ```
 
-## Результат
+3. Откройте браузер и перейдите по адресу, указанному в консоли.
 
-Вы увидите интерактивный React компонент с вашей иконкой.
+## Что дальше?
 
-## Готово!
-
-За 5 минут вы сконвертировали SVG в React компонент с TypeScript и изолированными стилями.
-
----
-
-## Другие форматы
-
-```bash
-# Vue компонент
-svg2web build icon.svg --output ./my-icon --format vue
-
-# Чистый HTML/CSS/JS
-svg2web build icon.svg --output ./my-icon --format vanilla
-```
-
-## Следующие шаги
-
-- [Полное руководство](/getting-started/first-project.md)
-- [Настройка конфигурации](/usage/config.md)
-- [Все команды CLI](/usage/cli.md)
-```
+- [Настроить под себя](../usage/config.md)
+- [Узнать все команды](../usage/cli.md)

@@ -1,4 +1,3 @@
-```markdown
 # Функции WASM
 
 ## Сигнатуры функций
@@ -348,5 +347,4 @@ async function processLargeSVG(svgFile: File) {
     throw error;
   }
 }
-```
 ```

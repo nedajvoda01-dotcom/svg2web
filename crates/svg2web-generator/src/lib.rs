@@ -1,1 +1,15 @@
-// [Lib] | Публичный API генератора pub use generator::{Generator GeneratorBuilder}; pub use registry::{FormatRegistry FormatRenderer}; pub use context::RenderContext; pub fn generate(ctx: RenderContext) -> Result<BuildOutput> pub fn generate_from_file(path: &Path format: &str) -> Result<BuildOutput> orchestration парсинг кэш генерация | ЭКСПОРТЫ: Generator GeneratorBuilder FormatRegistry FormatRenderer RenderContext generate generate_from_file Error | ЗАВИСИТ_ОТ: readers registry builders formats output | КТО_ИСПОЛЬЗУЕТ: cli потенциально server-side
+pub mod builders;
+pub mod error;
+pub mod formats;
+pub mod generator;
+pub mod output;
+pub mod readers;
+pub mod registry;
+
+pub use error::{Error, Result};
+pub use formats::{ReactRenderer, VanillaRenderer, VueRenderer};
+pub use builders::{CssBuilder, HtmlBuilder, JsBuilder};
+pub use generator::{Generator, GeneratorBuilder};
+pub use output::{write_files, write_zip, OutputOptions};
+pub use readers::{read_binary, read_json, BinaryReader, JsonReader};
+pub use registry::{FormatRegistry, FormatRenderer, OutputFile, RenderedOutput};
