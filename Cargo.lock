@@ -1660,6 +1660,7 @@ name = "svg2web-core"
 version = "0.1.0"
 dependencies = [
  "bincode",
+ "rand",
  "resvg",
  "serde",
  "serde_json",

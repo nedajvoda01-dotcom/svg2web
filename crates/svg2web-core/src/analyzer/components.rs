@@ -1,5 +1,6 @@
 use crate::model::analysis::{Component, Occurrence};
 use crate::model::SVGElement;
+use crate::util::signature::subtree_signature;
 use std::collections::HashMap;
 
 pub fn detect_components(element: &SVGElement) -> Vec<Component> {
@@ -60,31 +61,4 @@ fn collect_subtrees(
 	}
 
 	let _ = path.pop();
-}
-
-fn subtree_signature(element: &SVGElement) -> String {
-	let mut attrs: Vec<(&str, &str)> = element
-		.attributes
-		.iter()
-		.map(|(k, v)| (k.as_str(), v.as_str()))
-		.collect();
-	attrs.sort_unstable_by(|a, b| a.0.cmp(b.0).then(a.1.cmp(b.1)));
-
-	let attr_sig = attrs
-		.iter()
-		.map(|(k, v)| format!("{k}={v}"))
-		.collect::<Vec<_>>()
-		.join(";");
-
-	let child_sig = element
-		.children
-		.iter()
-		.map(subtree_signature)
-		.collect::<Vec<_>>()
-		.join("|");
-
-	format!(
-		"tag={};etype={:?};attrs={};text={:?};children=[{}]",
-		element.tag, element.element_type, attr_sig, element.text_content, child_sig
-	)
 }

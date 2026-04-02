@@ -1,10 +1,12 @@
 pub mod analyzer;
+pub mod architecture_constraints;
 pub mod error;
 pub mod extractor;
 pub mod model;
 pub mod optimizer;
 pub mod parser;
 pub mod serializer;
+pub mod util;
 pub mod validator;
 
 pub use analyzer::AnalysisResult;

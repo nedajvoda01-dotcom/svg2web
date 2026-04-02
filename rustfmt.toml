@@ -1,1 +1,9 @@
-# [Config] | Настройки форматирования Rust кода line_width=100 tab_spaces=4 edition="2021" use_small_heuristics="Default" reorder_imports=true reorder_modules=true group_imports="StdExternalCrate" [ignore] paths=[] применяется ко всему workspace единый стиль | ЗАВИСИМОСТИ: единые для workspace не переопределяются в крейтах | ПРОВЕРКИ: cargo fmt --check в CI fail при несоответствии автофикс cargo fmt
+edition = "2021"
+max_width = 100
+hard_tabs = false
+tab_spaces = 4
+newline_style = "Unix"
+use_small_heuristics = "Default"
+reorder_imports = true
+reorder_modules = true
+

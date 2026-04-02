@@ -24,3 +24,4 @@ binary-format = ["dep:bincode"]
 webp = ["dep:webp"]
 
 [dev-dependencies]
+rand = "0.8"
