@@ -1,1 +1,23 @@
-// [Generated] | NPM манифест
+{
+  "name": "svg2web-wasm",
+  "collaborators": [
+    "Team"
+  ],
+  "description": "WASM bindings for svg2web",
+  "version": "0.1.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/org/svg2web"
+  },
+  "files": [
+    "svg2web_wasm_bg.wasm",
+    "svg2web_wasm.js",
+    "svg2web_wasm.d.ts"
+  ],
+  "module": "svg2web_wasm.js",
+  "types": "svg2web_wasm.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}

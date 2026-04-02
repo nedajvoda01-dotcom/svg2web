@@ -1,3 +1,5 @@
+#![cfg(not(target_arch = "wasm32"))]
+
 #[test]
 fn wasm_bindgen_exports_exist_t043() {
     let d = std::fs::read_to_string("docs/api-reference/rust/wasm.md").unwrap_or_default();
@@ -12,7 +14,6 @@ fn wasm_bindgen_exports_exist_t043() {
     }
 }
 
-// T-085: StringPool \u2014 \u0440\u0430\u0431\u043e\u0442\u0430 \u0441 \u0431\u043e\u043b\u044c\u0448\u0438\u043c\u0438 \u0441\u0442\u0440\u043e\u043a\u0430\u043c\u0438 (>1MB)
 #[test]
 fn string_pool_prevents_oom_t085() {
     let d = std::fs::read_to_string("docs/internals/wasm-bindings.md").unwrap_or_default();
@@ -42,7 +43,7 @@ fn string_pool_prevents_oom_t085() {
 fn string_pool_prevents_oom_t085_t044() {
     let d = std::fs::read_to_string("docs/api-reference/rust/wasm.md").unwrap_or_default();
     assert!(d.contains("StringPool") && d.contains("allocate") && d.contains("read_chunk") && d.contains("free"));
-    assert!(d.contains(">1MB") || d.contains("1MB") || d.contains("\u0431\u043e\u043b\u044c\u0448\u0438\u0445 \u0441\u0442\u0440\u043e\u043a"));
+    assert!(d.contains(">1MB") || d.contains("1MB") || d.contains("large strings"));
 }
 
 #[test]
@@ -51,14 +52,12 @@ fn wasm_cache_memory_only_t042() {
     assert!(d.contains("WASM: Memory only"));
 }
 
-// T-086: \u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0438\u0435 std::fs
 #[test]
 fn no_fs_access_panics_t086() {
     let d = std::fs::read_to_string("docs/internals/wasm-bindings.md").unwrap_or_default();
-    assert!(d.contains("no std::fs") || d.contains("\u041d\u0435\u0442 \u0434\u043e\u0441\u0442\u0443\u043f\u0430 \u043a \u0444\u0430\u0439\u043b\u043e\u0432\u043e\u0439 \u0441\u0438\u0441\u0442\u0435\u043c\u0435"));
+    assert!(d.contains("no std::fs") || d.contains("no filesystem access"));
 }
 
-// T-087: Single-threaded \u043c\u043e\u0434\u0435\u043b\u044c
 #[test]
 fn wasm_single_threaded_model_t087() {
     let d = std::fs::read_to_string("docs/internals/wasm-bindings.md").unwrap_or_default();

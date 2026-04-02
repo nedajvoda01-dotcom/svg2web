@@ -1,3 +1,7 @@
+pub mod performance;
+pub mod strict;
+pub mod visual;
+
 use thiserror::Error;
 use usvg::TreeParsing;
 
@@ -64,7 +68,6 @@ fn has_attr(tag: &str, attr: &str) -> bool {
 }
 
 fn extract_line(message: &str) -> Option<usize> {
-	// Best-effort parser for messages like "at 12:34".
 	let at_idx = message.find(" at ")?;
 	let tail = &message[(at_idx + 4)..];
 	let mut digits = String::new();
@@ -75,7 +78,6 @@ fn extract_line(message: &str) -> Option<usize> {
 			break;
 		}
 	}
-
 	if digits.is_empty() {
 		None
 	} else {

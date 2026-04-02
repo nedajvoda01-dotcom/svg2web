@@ -15,6 +15,9 @@ pub use optimizer::OptimizationConfig;
 pub use parser::{ParseOptions, Parser};
 pub use serializer::{Format, SerializeOptions};
 pub use validator::ValidationError;
+pub use validator::performance::{check_timing, measure, TimingBudget};
+pub use validator::strict::{check_strict, StrictConfig, StrictViolation, PSNR_THRESHOLD};
+pub use validator::visual::{calculate_psnr, render_svg_to_rgba, visual_diff};
 
 pub fn parse(svg: &str) -> Result<SVGElement> {
 	parser::parse(svg).map_err(Error::from)
